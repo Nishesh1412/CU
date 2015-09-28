@@ -1,0 +1,770 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     28931,        761]
+NotebookOptionsPosition[     27370,        708]
+NotebookOutlinePosition[     27716,        723]
+CellTagsIndexPosition[     27673,        720]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["LAB O2: Variation of Atmospheric Pressure with Altitude\n\n",
+  FontSize->24,
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["Part 1: Calibration of the pressure transducer\n",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["Introduction",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["\n",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["The calibration constant C of the pressure transucer would be \
+determined in this part of the experiment. ",
+  FontSize->12,
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.6016816935085993`*^9, 3.601681721064054*^9}, {
+  3.6016819736970587`*^9, 3.6016819917071333`*^9}, {3.6016822258138742`*^9, 
+  3.601682227683721*^9}, {3.6016822688559628`*^9, 3.6016822833022013`*^9}, {
+  3.601682324328233*^9, 3.601682369105297*^9}, {3.601682419900288*^9, 
+  3.601682455192767*^9}, {3.601682618539411*^9, 3.601682620641111*^9}, {
+  3.601683358030921*^9, 3.601683401102262*^9}, {3.601683494157042*^9, 
+  3.601683517017396*^9}, {3.6016835519806633`*^9, 3.601683611931581*^9}, {
+  3.601683657080505*^9, 3.601683661396957*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"VccF", "=", " ", "1189"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Volume", " ", "of", " ", "the", " ", "flask", " ", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]VccF", "=", "7"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"error", " ", "of", " ", "volume", " ", "of", " ", "flask", " ", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"VccH", "=", "40"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"volume", " ", "of", " ", "the", " ", "hose", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]VccH", "=", " ", "1"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Error", " ", "of", " ", "volume", " ", "of", " ", "hose", " ", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"VccS", "=", "30"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Starting", " ", "volume", " ", "of", " ", "the", " ", "syringe", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]VccS", "=", "1"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "error", " ", "of", " ", "starting", " ", "volume", " ", "of", " ", 
+    "syringe", " ", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "=", 
+    RowBox[{"VccF", "+", "VccH", "+", "VccS"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Total", " ", "volume", " ", "of", " ", "the", " ", "system", " ", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]V", "=", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", "\[Delta]VccF", ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", "\[Delta]VccH", ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", "\[Delta]VccS", ")"}], "2"]}]]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"error", " ", "of", " ", "the", " ", "total", " ", "volume", " ", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"VC", "=", 
+    RowBox[{"{", 
+     RowBox[{"15", ",", "10", ",", "5", ",", 
+      RowBox[{"-", "5"}], ",", 
+      RowBox[{"-", "10"}], ",", 
+      RowBox[{"-", "15"}]}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "in", " ", "volume", " ", 
+    RowBox[{"(", "cc", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "=", "625"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Starting", " ", "atmospheric", " ", "pressure", " ", 
+    RowBox[{"(", "torr", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Vin", "=", "0.06"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Initial", " ", "voltage", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Vcal", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "0.677"}], ",", 
+      RowBox[{"-", "0.460"}], ",", 
+      RowBox[{"-", "0.205"}], ",", "0.301", ",", "0.537", ",", "0.785"}], 
+     "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"calculated", " ", "voltage", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Volt", "=", 
+    RowBox[{"Vcal", "-", "Vin"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"The", " ", "change", " ", "in", " ", "voltage", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]Volt", "=", "0.001"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"error", " ", "in", " ", "calculated", " ", "voltage", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"VCvsVolt", "=", " ", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"VC", ",", "Volt"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Prepend", "[", 
+    RowBox[{"VCvsVolt", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Change in volume (cc)\>\"", ",", " ", 
+       "\"\<voltage Reading (volts)\>\""}], "}"}]}], "]"}], ",", " ", 
+   RowBox[{"Frame", " ", "\[Rule]", " ", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6017392604730244`*^9, 3.601739490194374*^9}, {
+  3.6017395202861953`*^9, 3.601739579487133*^9}, {3.6017396515430713`*^9, 
+  3.6017397227566147`*^9}, {3.6017397558284025`*^9, 3.601740004896406*^9}, {
+  3.6017400398713818`*^9, 3.601740245353265*^9}, {3.6017402757106705`*^9, 
+  3.6017403178919764`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Change in volume (cc)\"\>", "\<\"voltage Reading (volts)\"\>"},
+    {"15", 
+     RowBox[{"-", "0.7370000000000001`"}]},
+    {"10", 
+     RowBox[{"-", "0.52`"}]},
+    {"5", 
+     RowBox[{"-", "0.265`"}]},
+    {
+     RowBox[{"-", "5"}], "0.241`"},
+    {
+     RowBox[{"-", "10"}], "0.47700000000000004`"},
+    {
+     RowBox[{"-", "15"}], "0.7250000000000001`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.601740329793632*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["Part 2: Change of Pressure with Temperature\n",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["Introduction",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["\n",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["The main goal for this part of the lab was to determine the effect \
+of the temperature on the pressure of the system. We first allowed the system \
+to reach equilibrium by opening the system from one end. We later warmed the \
+flask with our bear hands for about 20 seconds, hence, warming the air inside \
+the system. This also increased the pressure in the system because of the air \
+expanding due to it being warmer than it was at equilibrium. Thus, the change \
+in voltage to determin ehte effects of the termperature on the system could \
+be calculated.\n",
+  FontSize->12,
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.601740360834647*^9, 3.601740579759595*^9}, {
+  3.601740610941111*^9, 3.601740686426124*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ivolt", "=", " ", "0.085"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Initial", " ", "voltage", " ", "measured", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Fvolt", "=", "0.150"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Final", " ", "voltage", " ", "measured", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Cvolt", "=", " ", 
+    RowBox[{"Fvolt", "-", "Ivolt"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "in", " ", "voltage", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"IniT", "=", 
+   RowBox[{"21", "+", "274.15"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"Initial", " ", "temperature", " ", 
+    RowBox[{"(", "kelvin", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"T", "=", "20"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "duration", " ", "of", " ", "continous", " ", "heating", " ", "the", " ", 
+    "flask", " ", 
+    RowBox[{"(", "s", ")"}]}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.601740693445809*^9, 3.60174082089209*^9}, {
+  3.601743775349346*^9, 3.601743806262437*^9}, {3.601744028970765*^9, 
+  3.6017440873827653`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Part 3: Change of Pressure with Temperature\n",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["Introduction",
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["\nThe main goal of this part was to determine how the change in \
+altitude would effect the pressure inside the system. The system was closed \
+and before entering the elevator the voltage reading was noted down. The \
+system then was taken to the 10th floor of the Gamow Tower and then measured \
+the reading again. Then the two measurements were used to determine the \
+effect that a change in altitude has on air pressure. ",
+  FontSize->12,
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.6017408290505238`*^9, 3.601740909433731*^9}, {
+  3.6017412045313644`*^9, 3.60174120549854*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ivolt2", "=", 
+    RowBox[{"-", "0.026"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Initial", " ", "voltage", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"volt10", "=", 
+    RowBox[{"-", "0.295"}]}], ";", 
+   RowBox[{"(*", 
+    RowBox[{
+    "voltage", " ", "at", " ", "the", " ", "10", "th", " ", "floor", " ", 
+     RowBox[{"(", "volts", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Fvolt2", "=", 
+    RowBox[{"-", "0.040"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Final", " ", "voltage", " ", "reading", " ", "at", " ", "ground", " ", 
+    "floor", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"CH", "=", "32.2"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "in", " ", "height", " ", 
+    RowBox[{"(", "m", ")"}]}], "*)"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6017409231925783`*^9, 3.6017410294570537`*^9}, {
+  3.6017410669740915`*^9, 3.6017410974713097`*^9}, {3.601745308482765*^9, 
+  3.601745311913765*^9}, {3.6017453935327654`*^9, 3.6017453992757654`*^9}, {
+  3.6017456252807655`*^9, 3.601745644719765*^9}, {3.6017458687477655`*^9, 
+  3.601745872352765*^9}, {3.6017478664148493`*^9, 3.6017478993521423`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Data analysis", "Subtitle",
+ CellChangeTimes->{{3.601741185874243*^9, 3.601741192332477*^9}}],
+
+Cell[TextData[StyleBox["Part 1: Calibration of the pressure transducer",
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{3.6017412273850183`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"PC", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "VC"}], "/", "V"}], ")"}], "*", "P"}], "//", "N"}]}], 
+   ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "in", " ", "pressure", " ", 
+    RowBox[{"(", "torr", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PvsVolt", "=", 
+   RowBox[{"Thread", " ", "[", 
+    RowBox[{"{", 
+     RowBox[{"PC", ",", " ", "Volt"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Prepend", "[", 
+    RowBox[{"PvsVolt", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Change in Pressure (torr\>\"", ",", " ", 
+       "\"\<Change in Voltage (volts)\>\""}], "}"}]}], "]"}], ",", " ", 
+   RowBox[{"Frame", "\[Rule]", " ", "All"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"{", "PvsVolt", "}"}], ",", " ", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", " ", 
+    "\"\<\[DifferenceDelta]Pressure vs \[DifferenceDelta]Voltage\>\""}], ",", 
+   " ", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Pressure (torr)\>\"", ",", " ", "\"\<Voltage (volts)\>\""}],
+      "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"CaliC", "=", 
+    FractionBox["PC", "Volt"]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Calculate", " ", "values", " ", "for", " ", "the", " ", "Calibration", 
+    " ", "Constant", " ", "C", " ", 
+    RowBox[{"(", 
+     FractionBox["torr", "Volts"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CaliCAvg", "=", 
+   FractionBox[
+    RowBox[{"(", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"i", "=", "1"}], "6"], 
+      RowBox[{"CaliC", "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}], ")"}], "6"]}], 
+  RowBox[{"(*", 
+   RowBox[{"Avg", " ", "Calibration", " ", "Constant", " ", "values", " ", 
+    RowBox[{"(", 
+     FractionBox["torr", "volts"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"StanDev", "=", " ", 
+   SqrtBox[
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"i", "=", "1"}], "6"], 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"CaliC", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "-", "CaliCAvg"}], ")"}], "2"]}], 
+      ")"}], 
+     RowBox[{"(", 
+      RowBox[{"6", "-", "1"}], ")"}]]]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Standard", " ", "Diviation", " ", "of", " ", "Calibration", " ", 
+    "Constant"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"StanDevM", "=", 
+  FractionBox["StanDev", 
+   SqrtBox["6"]], 
+  RowBox[{"(*", 
+   RowBox[{"mean", " ", "standard", " ", "deviation"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.6017412991440983`*^9, 3.6017413435090837`*^9}, {
+  3.601741401756497*^9, 3.6017414067326417`*^9}, {3.6017414418776393`*^9, 
+  3.601741924711872*^9}, {3.6017419858002977`*^9, 3.601742065514765*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Change in Pressure (torr\"\>", "\<\"Change in Voltage \
+(volts)\"\>"},
+    {
+     RowBox[{"-", "7.44638602065131`"}], 
+     RowBox[{"-", "0.7370000000000001`"}]},
+    {
+     RowBox[{"-", "4.964257347100873`"}], 
+     RowBox[{"-", "0.52`"}]},
+    {
+     RowBox[{"-", "2.4821286735504366`"}], 
+     RowBox[{"-", "0.265`"}]},
+    {"2.4821286735504366`", "0.241`"},
+    {"4.964257347100873`", "0.47700000000000004`"},
+    {"7.44638602065131`", "0.7250000000000001`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.6017420696642847`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000017`, 0.24, 0.6], 
+    PointBox[{{-7.44638602065131, -0.7370000000000001}, {-4.964257347100873, \
+-0.52}, {-2.4821286735504366`, -0.265}, {2.4821286735504366`, 0.241}, {
+     4.964257347100873, 0.47700000000000004`}, {7.44638602065131, 
+     0.7250000000000001}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Pressure (torr)\"", TraditionalForm], 
+    FormBox["\"Voltage (volts)\"", TraditionalForm]},
+  AxesOrigin->{0., 0.},
+  Method->{},
+  PlotLabel->FormBox[
+   "\"\[DifferenceDelta]Pressure vs \[DifferenceDelta]Voltage\"", 
+    TraditionalForm],
+  PlotRange->{{-7.44638602065131, 7.44638602065131}, {-0.7370000000000001, 
+   0.7250000000000001}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.2978554408260524, 0.2978554408260524}, {
+   0.029240000000000006`, 0.029240000000000006`}}]], "Output",
+ CellChangeTimes->{3.601742070241474*^9}],
+
+Cell[BoxData["9.999038508745645`"], "Output",
+ CellChangeTimes->{3.6017420702570734`*^9}],
+
+Cell[BoxData["0.43505315074874307`"], "Output",
+ CellChangeTimes->{3.6017420702570734`*^9}],
+
+Cell[BoxData["0.17760970505409165`"], "Output",
+ CellChangeTimes->{3.601742070272673*^9}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Due to all the caluclations, we calculated the \
+average calibration constant which is extremely close to 10, which falls in \
+the acceptable range of 10-12. Also, the standard deviation was calculated \
+and it related to the data. ",
+ FontSize->12,
+ FontColor->RGBColor[0., 0., 1.]]], "Text",
+ CellChangeTimes->{{3.601742197956218*^9, 3.6017422596376762`*^9}}],
+
+Cell[TextData[StyleBox["Part 2: Change of Pressure with Temperature",
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{3.601742365778425*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PC2", "=", 
+   RowBox[{"CaliCAvg", " ", "*", "Cvolt"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "in", " ", "pressure", " ", 
+    RowBox[{"(", "torr", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"TC", "=", 
+  RowBox[{
+   FractionBox["PC2", "P"], "*", "IniT", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Temperature", " ", "Change", " ", 
+     RowBox[{"(", "Kelvins", ")"}]}], "*)"}]}]}]}], "Input",
+ CellChangeTimes->{{3.6017437028090925`*^9, 3.6017437331791296`*^9}, {
+   3.601743812670078*^9, 3.60174388330014*^9}, {3.601744102085765*^9, 
+   3.6017441539477654`*^9}, 3.601744430692765*^9}],
+
+Cell[BoxData["0.6499375030684669`"], "Output",
+ CellChangeTimes->{3.6017441605397654`*^9, 3.601744433285765*^9}],
+
+Cell[BoxData["0.3069264864490528`"], "Output",
+ CellChangeTimes->{3.6017441605397654`*^9, 3.6017444332877655`*^9}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["The temperature change was minimal due to it only \
+having 0.306926 change in Kelvin. Similary with the change in pressure was \
+minimal. ",
+ FontSize->12,
+ FontColor->RGBColor[0., 0., 1.]]], "Text",
+ CellChangeTimes->{{3.601744363845765*^9, 3.601744461207765*^9}}],
+
+Cell[TextData[StyleBox["Part 3: Change of Pressure with Altitude",
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{
+  3.6017444955347652`*^9, {3.6017450944597654`*^9, 3.6017450978677654`*^9}, {
+   3.601748657564762*^9, 3.601748658883762*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"VC2", "=", 
+    RowBox[{"volt10", "-", "Ivolt2"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Change", " ", "in", " ", "voltage", " ", "from", " ", "the", " ", 
+    "basement", " ", "to", " ", "the", " ", "10", "th", " ", "floor", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"VC3", "=", " ", 
+    RowBox[{"volt10", "-", "Fvolt2"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "change", " ", "in", " ", "voltage", " ", "from", " ", "the", " ", "10", 
+    "th", " ", "floor", " ", "and", " ", "then", " ", "back", " ", "to", " ", 
+    "the", " ", "basement", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AvgVC", "=", " ", 
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{"VC2", "+", "VC3"}], ")"}], "2"]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Avg", " ", "voltage", " ", "change", " ", "between", " ", "the", " ", 
+    "basement", " ", "and", " ", "the", " ", "10", "th", " ", "floor", " ", 
+    RowBox[{"(", "volts", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PC3", "=", " ", 
+   RowBox[{"AvgVC", "*", "CaliCAvg"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "in", " ", "pressure", " ", 
+    RowBox[{"(", "torr", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]P", "=", "0.001"}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"uncertainity", " ", "of", " ", "pressure", " ", 
+     RowBox[{"(", "torr", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"SH", "=", 
+    RowBox[{
+     RowBox[{"-", "P"}], "*", 
+     FractionBox["CH", "PC3"]}]}]}], 
+  RowBox[{"(*", 
+   RowBox[{"calculation", " ", "of", " ", "scale", " ", "height", " ", 
+    RowBox[{"(", "m", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Delta]H", "=", 
+  RowBox[{"P", "*", 
+   RowBox[{"(", 
+    FractionBox["CH", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"Log", "[", 
+         RowBox[{"(", 
+          FractionBox[
+           RowBox[{"(", 
+            RowBox[{"P", "+", "PC3"}], ")"}], "P"], ")"}], "]"}], ")"}], "2"],
+       "*", 
+      RowBox[{"(", 
+       RowBox[{"P", "+", "PC3"}], ")"}]}]], ")"}], "*", 
+   "\[Delta]P"}]}]}], "Input",
+ CellChangeTimes->{{3.601744703186765*^9, 3.601744819880765*^9}, {
+  3.601744850674765*^9, 3.601744876809765*^9}, {3.601745104564765*^9, 
+  3.6017451270967655`*^9}, {3.601745167953765*^9, 3.601745199375765*^9}, {
+  3.601745743354765*^9, 3.601745800646765*^9}, {3.6017460710797653`*^9, 
+  3.6017461849267654`*^9}, {3.6017475275609674`*^9, 3.6017475490151124`*^9}, {
+  3.6017476312233324`*^9, 3.6017478149116993`*^9}, {3.6017479118703947`*^9, 
+  3.6017479365578628`*^9}, {3.601748048819088*^9, 3.6017481342027617`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "2.619748089291359`"}]], "Output",
+ CellChangeTimes->{
+  3.6017449436857653`*^9, 3.601745129424765*^9, 3.6017453230117655`*^9, 
+   3.6017454058157654`*^9, {3.601745629970765*^9, 3.601745650769765*^9}, 
+   3.6017457509977655`*^9, {3.6017457878067656`*^9, 3.6017458029227653`*^9}, 
+   3.601745899338765*^9, {3.6017461743367653`*^9, 3.601746189450765*^9}, 
+   3.601747596405851*^9, {3.601747633988609*^9, 3.6017476475459642`*^9}, 
+   3.6017478161318216`*^9, 3.6017479089220996`*^9, {3.6017480562238283`*^9, 
+   3.6017480674527617`*^9}, {3.601748123467762*^9, 3.601748137427762*^9}}],
+
+Cell[BoxData["7682.036330998453`"], "Output",
+ CellChangeTimes->{
+  3.6017449436857653`*^9, 3.601745129424765*^9, 3.6017453230117655`*^9, 
+   3.6017454058157654`*^9, {3.601745629970765*^9, 3.601745650769765*^9}, 
+   3.6017457509977655`*^9, {3.6017457878067656`*^9, 3.6017458029227653`*^9}, 
+   3.601745899338765*^9, {3.6017461743367653`*^9, 3.601746189450765*^9}, 
+   3.601747596405851*^9, {3.601747633988609*^9, 3.6017476475459642`*^9}, 
+   3.6017478161318216`*^9, 3.6017479089220996`*^9, {3.6017480562238283`*^9, 
+   3.6017480674527617`*^9}, {3.601748123467762*^9, 3.6017481374317617`*^9}}],
+
+Cell[BoxData["1832.725744028943`"], "Output",
+ CellChangeTimes->{
+  3.6017449436857653`*^9, 3.601745129424765*^9, 3.6017453230117655`*^9, 
+   3.6017454058157654`*^9, {3.601745629970765*^9, 3.601745650769765*^9}, 
+   3.6017457509977655`*^9, {3.6017457878067656`*^9, 3.6017458029227653`*^9}, 
+   3.601745899338765*^9, {3.6017461743367653`*^9, 3.601746189450765*^9}, 
+   3.601747596405851*^9, {3.601747633988609*^9, 3.6017476475459642`*^9}, 
+   3.6017478161318216`*^9, 3.6017479089220996`*^9, {3.6017480562238283`*^9, 
+   3.6017480674527617`*^9}, {3.601748123467762*^9, 3.601748137434762*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.601748079417762*^9, 3.6017480817567616`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusion", "Subtitle",
+ CellChangeTimes->{{3.6017468424157653`*^9, 3.6017468485987654`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Part 1: Calibration of the pressure transducer",
+  FontColor->RGBColor[1, 0, 0]],
+ "\n",
+ StyleBox["In the first part of this lab experiment, the purpose was to \
+calculate the calibration constant. In conclusion, we calculated the final \
+average calibration constant to be 9.99~10 ",
+  FontSize->12,
+  FontColor->RGBColor[0, 0, 1]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox["torr", "volts"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox[", which falls into the acceptable calibration constant values \
+between 10-12 ",
+  FontSize->12,
+  FontColor->RGBColor[0, 0, 1]],
+ Cell[BoxData[
+  FormBox[
+   FractionBox["torr", "volts"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ StyleBox[". Then, the standard deviation was calculated to develop a \
+statistical measure of the mean variance. Both values were acceptable and \
+were around the expected values. To obtain more of a precise value of the \
+calibration constant or more between the range of 10-12, a system should be \
+used in which the temperature is controlled and the the temperature of the \
+hand affecting the air particles to be measured. \n\n\n",
+  FontSize->12,
+  FontColor->RGBColor[0, 0, 1]],
+ StyleBox["Part 2: Change of Pressure with Temperature",
+  FontColor->RGBColor[1, 0, 0]],
+ "\n",
+ StyleBox["In the second part of this lab experiment, the purpose was to \
+determine the effect of temperature on the pressure inside the system. In \
+conclusion, we calculated the Pressure change and the Temperature change due \
+to heating up the air particles inside the system over a period of 20 seconds \
+with our hands and we had a minimal change in pressure and temperature. These \
+were the following values respectively, 0.65 torr and 0.31 kelvin. Obviously \
+there was a minimal change, in order to get a more precise idea of how much \
+the temperature affects the pressure, we should\[CloseCurlyQuote]ve done more \
+trials. As in, measure the temperature on the hands, place them over the \
+system for 10s, then 20s, then 30s, then 40s, etc. Hence, giving valuable \
+data and increasing the certainity of the calculations done post lab. \n\n",
+  FontSize->12,
+  FontColor->RGBColor[0., 0., 1.]],
+ StyleBox["Part 3: Change of Pressure with Altitude\n",
+  FontColor->RGBColor[1, 0, 0]],
+ StyleBox["In the third and final part of this lab experiment, the purpose \
+was to determine the effect that the altitude has on the pressure inside the \
+system. In conclusion, we calculated the average voltage change between 1) \
+starting from the bottom and going to the 10th floor, and 2) starting from \
+the 10th floor to the bottom; this was done because in both times that the \
+voltage was measured at the basement, beginning and final, the voltage was \
+off by 0.16 volts (which was still acceptable). This allowed us to calculate \
+the pressure change with respect to altitude, giving us a pressure change of \
+-2.62 torr. Hence, this allowed us to calculate the scale height, 7700m, and \
+the uncertainity of the scale height, 1800m. We had a huge uncertainity \
+regarding the scaler height however the litrature value for Earth is 8.5km of \
+scale height, thus having our answer within the error and within the \
+acceptable values. The error in this part can be caused by the temperature \
+change within the system during the elevator ride up and down the tower, \
+which could also be a factor since there were 4 people crowded in one tiny \
+elevator going up. ",
+  FontSize->12,
+  FontColor->RGBColor[0, 0, 1]]
+}], "Text",
+ CellChangeTimes->{{3.601746870774765*^9, 3.6017468953897653`*^9}, {
+  3.6017469316987653`*^9, 3.6017470614027653`*^9}, {3.601747157653765*^9, 
+  3.6017471720807652`*^9}, {3.6017474249667654`*^9, 3.6017475165608673`*^9}, {
+  3.6017482436357617`*^9, 3.6017489162687616`*^9}, {3.6017489749217615`*^9, 
+  3.601749137680762*^9}, {3.601749172798762*^9, 3.601749195317762*^9}}]
+}, Open  ]]
+},
+WindowSize->{797, 971},
+WindowMargins->{{Automatic, 124}, {Automatic, -24}},
+FrontEndVersion->"9.0 for Microsoft Windows (32-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1082, 22, 127, "Text"],
+Cell[CellGroupData[{
+Cell[1664, 46, 4560, 128, 362, "Input"],
+Cell[6227, 176, 629, 20, 132, "Output"]
+}, Open  ]],
+Cell[6871, 199, 966, 19, 157, "Text"],
+Cell[7840, 220, 1286, 34, 112, "Input"],
+Cell[9129, 256, 784, 15, 121, "Text"],
+Cell[9916, 273, 1331, 33, 112, "Input"],
+Cell[CellGroupData[{
+Cell[11272, 310, 99, 1, 56, "Subtitle"],
+Cell[11374, 313, 157, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[11556, 319, 2991, 89, 335, "Input"],
+Cell[14550, 410, 736, 21, 132, "Output"],
+Cell[15289, 433, 977, 22, 231, "Output"],
+Cell[16269, 457, 89, 1, 31, "Output"],
+Cell[16361, 460, 91, 1, 31, "Output"],
+Cell[16455, 463, 89, 1, 31, "Output"]
+}, Open  ]],
+Cell[16559, 467, 385, 6, 47, "Text"],
+Cell[16947, 475, 152, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[17124, 481, 638, 15, 67, "Input"],
+Cell[17765, 498, 112, 1, 31, "Output"],
+Cell[17880, 501, 114, 1, 31, "Output"]
+}, Open  ]],
+Cell[18009, 505, 289, 5, 47, "Text"],
+Cell[18301, 512, 254, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[18580, 520, 2813, 72, 279, "Input"],
+Cell[21396, 594, 607, 9, 31, "Output"],
+Cell[22006, 605, 592, 8, 31, "Output"],
+Cell[22601, 615, 590, 8, 31, "Output"]
+}, Open  ]],
+Cell[23206, 626, 94, 1, 31, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23337, 632, 100, 1, 56, "Subtitle"],
+Cell[23440, 635, 3914, 70, 556, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

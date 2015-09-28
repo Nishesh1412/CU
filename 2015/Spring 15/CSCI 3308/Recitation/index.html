@@ -1,0 +1,33 @@
+<html>
+<meta charset="utf-8">
+<head>
+<title>Demo</title>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(document).ready(function (){
+	$.ajax({
+		'url': "//api.openweathermap.org/data/2.5/weather",
+		'type': 'GET',
+		'data': {'q':'Boulder, CO'},
+		'success':function(response){
+			console.log(response);
+			//alert(response.main.temp-273.15);
+			$('#results_temp').text(response.main.temp+" kelvin");
+			$('#results_humid').text(response.main.humidity+"%");
+			$('#results_wind').text(response.wind.speed+"m/s");
+		}
+	});
+});
+
+</script>
+
+</head>
+<body>
+<a href="http://jquery.com/">jQuery</a>
+<script src="jquery.js"></script>
+<h1>Weather REST API</h1>
+<p>Temperature: <p id="results_temp">original</p>
+<p>Humidity: <p id="results_humid">original</p>
+<p>Wind Speed: <p id="results_wind">original</p>
+</body>
+</html>

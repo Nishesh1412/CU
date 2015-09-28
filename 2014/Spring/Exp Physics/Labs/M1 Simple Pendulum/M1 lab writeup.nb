@@ -1,0 +1,1084 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     42626,       1075]
+NotebookOptionsPosition[     40795,       1016]
+NotebookOutlinePosition[     41137,       1031]
+CellTagsIndexPosition[     41094,       1028]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Lab", " ", 
+   RowBox[{"M1", ":", " ", 
+    RowBox[{"The", " ", "Simple", " ", "Pendulum"}]}]}],
+  FontSize->36]], "Input",
+ CellChangeTimes->{{3.6001016192777023`*^9, 3.600101639732748*^9}, 
+   3.6001193454243617`*^9}],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Introduction", " ", "to", " ", "Part", " ", "1"}],
+  FontSize->18], "\[IndentingNewLine]", 
+ RowBox[{"\t", 
+  RowBox[{
+   RowBox[{
+   "In", " ", "the", " ", "first", " ", "part", " ", "of", " ", "this", " ", 
+    "lab", " ", "the", " ", "goal", " ", "was", " ", "to", " ", "determine", 
+    " ", "the", " ", "value", " ", "of", " ", "acceleration", " ", "due", " ",
+     "to", " ", 
+    RowBox[{"gravity", ".", " ", "This"}], " ", "would", " ", "be", " ", 
+    "determined", " ", "by", " ", "using", " ", "a", " ", "simple", " ", 
+    RowBox[{"pendulum", ".", " ", "Using"}], " ", "the", " ", "equations", 
+    " ", "the", " ", "center", " ", "of", " ", "mass", " ", "can", " ", "be", 
+    " ", 
+    RowBox[{"calculated", ".", " ", "Then"}], " ", "the", " ", "period", " ", 
+    "can", " ", "be", " ", "found", " ", "by", " ", "swinging", " ", "the", 
+    " ", "mass", " ", "throguh", " ", "the", " ", "photogate", " ", "which", 
+    " ", "then", " ", "measures", " ", "the", " ", "period", " ", "of", " ", 
+    RowBox[{"mass", ".", " ", "After"}], " ", "we", " ", "have", " ", "both", 
+    " ", "of", " ", "the", " ", "values"}], ",", " ", 
+   RowBox[{
+   "the", " ", "acceleration", " ", "of", " ", "gravity", " ", "can", " ", 
+    "be", " ", 
+    RowBox[{"found", ".", "\[IndentingNewLine]"}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.600103011231884*^9, 3.600103048633624*^9}, 
+   3.6001091312411437`*^9, {3.6001109118959913`*^9, 3.6001109158702183`*^9}, {
+   3.600112171715049*^9, 3.600112245983297*^9}, {3.6001185316748176`*^9, 
+   3.6001185982096233`*^9}, {3.6001186384119225`*^9, 3.600118762949046*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Part", " ", "1"}], ":", 
+  RowBox[{
+  "Finding", " ", "the", " ", "acceleration", " ", "due", " ", "to", " ", 
+   "gravity"}]}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"h", "=", "0.03815"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Height", " ", "of", " ", "the", " ", "mass", " ", 
+    RowBox[{"(", "m", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]h", "=", "0.00015"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertainity", " ", "of", " ", "the", " ", "height", " ", "of", " ", 
+    "the", " ", "mass", " ", 
+    RowBox[{"(", "m", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Lambda]", "=", "1.0225"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Length", " ", "of", " ", "the", " ", "string", " ", 
+    RowBox[{"(", "m", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]\[Lambda]", "=", "0.0025"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertainity", " ", "of", " ", "the", " ", "length", " ", "of", " ", 
+    "the", " ", "string"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"L", "=", 
+    RowBox[{"\[Lambda]", "+", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], "*", "h"}], ")"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Length", " ", "of", " ", "the", " ", "pendulum"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]L", "=", 
+   SqrtBox[
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", "\[Delta]\[Lambda]", ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["\[Delta]h", "2"], ")"}], "2"]}], ")"}]]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Calculated", " ", "uncertainity", " ", "of", " ", "the", " ", "length", 
+    " ", "of", " ", "the", " ", "pendulum"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"T", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"2.0499", ",", " ", "2.0480", ",", " ", "2.0417"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]T", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"Abs", "[", 
+      RowBox[{
+       RowBox[{"T", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "-", 
+       RowBox[{"T", "[", 
+        RowBox[{"[", "3", "]"}], "]"}]}], "]"}], ")"}], "/", "2"}]}], ";", 
+  " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertainity", " ", "in", " ", "the", " ", "period", " ", "measurements", 
+    " ", 
+    RowBox[{"(", "s", ")"}]}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.6001030618849487`*^9, 3.600103071107871*^9}, 
+   3.600103102207981*^9, {3.6001124939354787`*^9, 3.6001125379209948`*^9}}],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Introduction", " ", "to", " ", "Part", " ", "2"}],
+  FontSize->18], "\[IndentingNewLine]", 
+ RowBox[{"\t", 
+  RowBox[{
+   RowBox[{"In", " ", "this", " ", "part"}], ",", " ", 
+   RowBox[{
+   "the", " ", "relationship", " ", "between", " ", "the", " ", "period", " ",
+     "and", " ", "the", " ", "length", " ", "of", " ", "the", " ", "string", 
+    " ", "would", " ", "be", " ", "graphed", " ", "and", " ", 
+    RowBox[{"analyzed", ".", " ", "Both"}], " ", "period", " ", "and", " ", 
+    "the", " ", "length", " ", "of", " ", "each", " ", "of", " ", "the", " ", 
+    "strings", " ", "woul", " ", "dbe", " ", "measured", " ", "and", " ", 
+    "then", " ", "the", " ", "data", " ", "would", " ", "be", " ", "used", 
+    " ", "to", " ", "compare", " ", "the", " ", 
+    RowBox[{"two", "."}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.600102439713738*^9, 3.6001027890846715`*^9}, {
+   3.600102840415804*^9, 3.6001029555573173`*^9}, 3.6001030957613363`*^9, {
+   3.6001110393582816`*^9, 3.60011104106738*^9}, {3.600112161850485*^9, 
+   3.6001121673107967`*^9}, {3.6001122615891895`*^9, 3.600112318031418*^9}, {
+   3.600118837136289*^9, 3.6001189035210857`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  StyleBox[
+   RowBox[{
+    RowBox[{"Part", " ", "2"}], ":", 
+    RowBox[{"Dependence", " ", "of", " ", "Time", " ", "on", " ", "Length"}]}],
+   FontSize->14]}]], "Input",
+ CellChangeTimes->{{3.6001123234467278`*^9, 3.600112341487759*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Lambda]2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "1.115", ",", " ", "0.802", ",", " ", "0.356", ",", " ", "0.623", ",", 
+       " ", "1.0225"}], "}"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Lengths", " ", "of", " ", "all", " ", "the", " ", "strings", " ", "used",
+      " ", 
+     RowBox[{"(", "m", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"L2", "=", " ", 
+    RowBox[{
+     RowBox[{"\[Lambda]2", "+", 
+      FractionBox["h", "2"]}], "//", "N"}]}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "The", " ", "total", " ", "length", " ", "from", " ", "the", " ", "top", 
+     " ", "of", " ", "the", " ", "string", " ", "to", " ", "the", " ", 
+     "center", " ", "of", " ", "mass", 
+     RowBox[{"(", "m", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"T2", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "2.148", ",", " ", "1.830", ",", " ", "1.239", ",", " ", "1.619", ",", 
+       " ", "2.045"}], "}"}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+     "The", " ", "periods", " ", "of", " ", "each", " ", "of", " ", "the", 
+      " ", "lengths", " ", 
+      RowBox[{"(", "s", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[Delta]T2", "=", " ", "0.001"}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "the", " ", "uncertaintiy", " ", "of", " ", "the", " ", "periods", " ", 
+      RowBox[{"(", "s", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"L2vsT2", "=", " ", 
+     RowBox[{"Thread", "[", 
+      RowBox[{"{", 
+       RowBox[{"L2", ",", "T2"}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{"L2vsT2", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Length of Pendulum(m)\>\"", ",", 
+         "\"\<Period of Pendulum(s)\>\""}], "}"}]}], "]"}], ",", " ", 
+     RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"{", "L2vsT2", "}"}], ",", " ", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Period vs. String Length\>\""}], 
+     ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<String Length(m)\>\"", ",", "\"\<Period(s)\>\""}], 
+       "}"}]}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{".5", ",", "1.2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2.2"}], "}"}]}], "}"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.60010311880064*^9, 3.600103167926552*^9}, {
+  3.600103215793338*^9, 3.6001037054072943`*^9}, {3.6001091698183503`*^9, 
+  3.6001092038872986`*^9}, {3.6001125499366817`*^9, 3.600112558206155*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.134075`", ",", "0.821075`", ",", "0.375075`", ",", "0.642075`", ",", 
+   "1.041575`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6001036931000643`*^9, 3.6001037096577196`*^9}, 
+   3.600109206369441*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Length of Pendulum(m)\"\>", "\<\"Period of Pendulum(s)\"\>"},
+    {"1.134075`", "2.148`"},
+    {"0.821075`", "1.83`"},
+    {"0.375075`", "1.239`"},
+    {"0.642075`", "1.619`"},
+    {"1.041575`", "2.045`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.6001036931000643`*^9, 3.6001037096577196`*^9}, 
+   3.6001092063804417`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     PointBox[{{1.134075, 2.148}, {0.821075, 1.83}, {0.375075, 1.239}, {
+      0.642075, 1.619}, {1.041575, 2.045}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"String Length(m)\"", TraditionalForm], 
+    FormBox["\"Period(s)\"", TraditionalForm]},
+  AxesOrigin->{0.5, 1.},
+  Method->{},
+  PlotLabel->FormBox["\"Period vs. String Length\"", TraditionalForm],
+  PlotRange->{{0.5, 1.2}, {1, 2.2}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6001036931000643`*^9, 3.6001037096577196`*^9}, 
+   3.6001092065404506`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   StyleBox[
+    RowBox[{"Introduction", " ", "to", " ", "Part", " ", "3"}],
+    FontSize->18], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{
+    "In", " ", "the", " ", "final", " ", "part", " ", "of", " ", "this", " ", 
+     "lab", " ", "we", " ", "would", " ", "realize", " ", "how", " ", "the", 
+     " ", "period", " ", "varies", " ", "by", " ", "a", " ", "change", " ", 
+     "of", " ", "amplitude", " ", 
+     RowBox[{"(", "degrees", ")"}], " ", "of", " ", "the", " ", 
+     RowBox[{"wing", ".", " ", "Different"}], " ", "angles", " ", "would", 
+     " ", "be", " ", "used", " ", "from", " ", "5"}], "-", 
+    RowBox[{
+    "70", " ", "with", " ", "a", " ", "5", " ", "degree", " ", "increase", 
+     " ", "each", " ", "time", " ", "and", " ", "then", " ", "each", " ", 
+     "time", " ", "the", " ", "period", " ", "would", " ", "be", " ", 
+     RowBox[{"measured", ".", "\[IndentingNewLine]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.600112120346111*^9, 3.600112146786623*^9}, {
+  3.600112348366153*^9, 3.6001123540344768`*^9}, {3.6001189118495626`*^9, 
+  3.6001190255400653`*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"Part", " ", "3"}], ":", 
+   RowBox[{"Dependence", " ", "of", " ", "T", " ", "on", " ", "Amplitude"}]}],
+  FontSize->14]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"A", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "5", ",", "10", ",", "15", ",", "20", ",", "25", ",", "30", ",", "35", 
+       ",", "40", ",", "45", ",", "50", ",", "55", ",", "60", ",", "65", ",", 
+       "70"}], "}"}]}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Angles", " ", "of", " ", "initial", " ", "height", " ", "of", " ", 
+      "pendulum", " ", 
+      RowBox[{"(", "Degrees", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[Delta]A", "=", "0.5"}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Uncertainty", " ", "of", " ", "the", " ", "initial", " ", "angle", " ", 
+      RowBox[{"(", "Degrees", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[Theta]", "=", 
+     RowBox[{
+      RowBox[{"A", "*", 
+       RowBox[{"(", 
+        FractionBox["\[Pi]", "180"], ")"}]}], "//", "N"}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Converting", " ", "the", " ", "uncertainty", " ", "all", " ", "the", 
+      " ", "angles", " ", "from", " ", "degrees", " ", "to", " ", "radians"}],
+      "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[Delta]\[Theta]", "=", 
+     RowBox[{"\[Delta]A", "*", 
+      RowBox[{"(", 
+       FractionBox["\[Pi]", "180"], ")"}]}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Converting", " ", "the", " ", "uncertainity", " ", "from", " ", 
+      "degrees", " ", "to", " ", "radians"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"T3", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "2.0469", ",", " ", "2.0498", ",", " ", "2.0563", ",", " ", "2.0627", 
+       ",", " ", "2.0717", ",", " ", "2.0834", ",", " ", "2.0931", ",", " ", 
+       "2.1068", ",", " ", "2.1300", ",", " ", "2.1450", ",", " ", "2.1780", 
+       ",", " ", "2.1956", ",", " ", "2.2250", ",", " ", "2.2362"}], "}"}]}], 
+    ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Period", " ", "from", " ", "each", " ", "of", " ", "the", " ", "angles",
+       " ", "respectively"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[Delta]T3", "=", "0.0001"}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{"Uncertainty", " ", "of", " ", "the", " ", "period"}], "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"T3vs\[Theta]", "=", 
+     RowBox[{"Thread", "[", 
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", " ", "T3"}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{"T3vs\[Theta]", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Amplitude (rad)\>\"", ",", " ", "\"\<Period(s)\>\""}], 
+        "}"}]}], "]"}], ",", " ", 
+     RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"{", "T3vs\[Theta]", "}"}], ",", " ", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<period vs Amplitude\>\""}], ",", 
+     " ", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Angle (rad)\>\"", ",", " ", "\"\<Period (s)\>\""}], 
+       "}"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6001110487588196`*^9, 3.600111315954102*^9}, {
+   3.6001116717314515`*^9, 3.600111764628765*^9}, {3.6001118300135045`*^9, 
+   3.6001119443250427`*^9}, {3.600111994047887*^9, 3.600112101831052*^9}, 
+   3.6001190101971874`*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Amplitude (rad)\"\>", "\<\"Period(s)\"\>"},
+    {"0.08726646259971647`", "2.0469`"},
+    {"0.17453292519943295`", "2.0498`"},
+    {"0.2617993877991494`", "2.0563`"},
+    {"0.3490658503988659`", "2.0627`"},
+    {"0.4363323129985824`", "2.0717`"},
+    {"0.5235987755982988`", "2.0834`"},
+    {"0.6108652381980153`", "2.0931`"},
+    {"0.6981317007977318`", "2.1068`"},
+    {"0.7853981633974483`", "2.13`"},
+    {"0.8726646259971648`", "2.145`"},
+    {"0.9599310885968813`", "2.178`"},
+    {"1.0471975511965976`", "2.1956`"},
+    {"1.1344640137963142`", "2.225`"},
+    {"1.2217304763960306`", "2.2362`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.600112104132183*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+    PointBox[{{0.08726646259971647, 2.0469}, {0.17453292519943295`, 2.0498}, {
+     0.2617993877991494, 2.0563}, {0.3490658503988659, 2.0627}, {
+     0.4363323129985824, 2.0717}, {0.5235987755982988, 2.0834}, {
+     0.6108652381980153, 2.0931}, {0.6981317007977318, 2.1068}, {
+     0.7853981633974483, 2.13}, {0.8726646259971648, 2.145}, {
+     0.9599310885968813, 2.178}, {1.0471975511965976`, 2.1956}, {
+     1.1344640137963142`, 2.225}, {1.2217304763960306`, 2.2362}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Angle (rad)\"", TraditionalForm], 
+    FormBox["\"Period (s)\"", TraditionalForm]},
+  AxesOrigin->{0, 2.0469},
+  Method->{},
+  PlotLabel->FormBox["\"period vs Amplitude\"", TraditionalForm],
+  PlotRange->{{0, 1.2217304763960306`}, {2.0469, 2.2362}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.024434609527920613`, 0.024434609527920613`}, {
+   0.003786000000000005, 0.003786000000000005}}]], "Output",
+ CellChangeTimes->{3.600112104160185*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6001111913919773`*^9, 3.6001111951151905`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Data", " ", "Analysis", " ", "and", " ", "Discussion"}],
+  FontSize->18]], "Input",
+ CellChangeTimes->{{3.6001123807120028`*^9, 3.600112395201832*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"Part", " ", "1"}], ":", " ", 
+   RowBox[{
+   "Finding", " ", "the", " ", "acceleration", " ", "due", " ", "to", " ", 
+    "gravity"}]}],
+  FontSize->14]], "Input",
+ CellChangeTimes->{{3.6001124674619646`*^9, 3.6001124781855783`*^9}, 
+   3.600113335630621*^9, {3.600114301037839*^9, 3.600114313901575*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Tmeasured", "=", "2.0480"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "middle", " ", "value", " ", "of", " ", "the", " ", "three", 
+    " ", "trials", " ", "of", " ", "the", " ", "period", " ", "is", " ", 
+    "also", " ", "refered", " ", "to", " ", "as", " ", "the", " ", "Best", 
+    " ", "Fit", " ", 
+    RowBox[{"(", "s", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gmeasured", "=", 
+   RowBox[{"4", "*", 
+    SuperscriptBox["\[Pi]", "2"], "*", 
+    RowBox[{"(", 
+     FractionBox["L", 
+      SuperscriptBox["Tmeasured", "2"]], ")"}]}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "calculated", " ", "acceleration", " ", "due", " ", "to", " ", "gravity", 
+    " ", "from", " ", "measurements", " ", "of", " ", "length", " ", "and", 
+    " ", "period", 
+    RowBox[{"(", 
+     FractionBox["m", 
+      SuperscriptBox["s", "2"]], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Delta]measured", "=", 
+  RowBox[{"gmeasured", "*", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox["\[Delta]L", "L"], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"2", "*", 
+        FractionBox["\[Delta]T", "Tmeasured"]}], ")"}], "2"]}]], 
+   RowBox[{"(*", 
+    RowBox[{
+    "Uncertainty", " ", "in", " ", "the", " ", "measured", " ", 
+     "acceleration", " ", "due", " ", "to", " ", "gravitiy", " ", 
+     RowBox[{"(", 
+      FractionBox["m", 
+       SuperscriptBox["s", "2"]], ")"}]}], "*)"}]}]}]}], "Input",
+ CellChangeTimes->{{3.600112606094894*^9, 3.6001127446098166`*^9}, {
+  3.60011307003543*^9, 3.60011311165281*^9}, {3.600113207534294*^9, 
+  3.600113319305687*^9}, {3.6001135018301272`*^9, 3.600113502336156*^9}}],
+
+Cell[BoxData["9.803708271088263`"], "Output",
+ CellChangeTimes->{3.6001135217832685`*^9}],
+
+Cell[BoxData["0.04577131235076234`"], "Output",
+ CellChangeTimes->{3.6001135217882686`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "The", " ", "experimental", " ", "g", " ", "calculated", " ", "was", " ", 
+   RowBox[{"(", 
+    RowBox[{"9.80", "\[PlusMinus]", "0.046"}], ")"}], 
+   RowBox[{
+    FractionBox["m", 
+     SuperscriptBox["s", "2"]], ".", " ", "Using"}], " ", "equation", " ", 
+   "12"}], ",", " ", 
+  RowBox[{"the", " ", "uncertainity", " ", "of", " ", "g", " ", "was", " ", 
+   RowBox[{"calculated", "."}]}]}]], "Input",
+ CellChangeTimes->{{3.600113515147889*^9, 3.6001135183080697`*^9}, {
+  3.6001138217844276`*^9, 3.600113823981553*^9}, {3.600113913497673*^9, 
+  3.6001140435051093`*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"gknown", "=", "9.796"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\[CapitalDelta]g", "=", 
+  RowBox[{"gmeasured", "-", "gknown", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "finding", " ", "the", " ", "difference", " ", "of", " ", "the", " ", 
+     RowBox[{"g", "'"}], "s", " ", "to", " ", "see", " ", "if", " ", "the", 
+     " ", "error", " ", "falls", " ", "within", " ", "it"}], 
+    "*)"}]}]}]}], "Input",
+ CellChangeTimes->{{3.6001140474063325`*^9, 3.6001141204875126`*^9}}],
+
+Cell[BoxData["0.007708271088263885`"], "Output",
+ CellChangeTimes->{3.6001141216025763`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "The", " ", "difference", " ", "between", " ", "the", " ", "measured", " ", 
+   "g", " ", "and", " ", "the", " ", "theoretical", " ", "g", " ", "is", " ", 
+   "within", " ", "the", " ", "error", " ", "bound"}], ",", " ", 
+  RowBox[{
+  "leading", " ", "to", " ", "the", " ", "conclusion", " ", "that", " ", 
+   "the", " ", "data", " ", "is", " ", 
+   RowBox[{"plausible", "."}]}]}]], "Input",
+ CellChangeTimes->{{3.6001142125907803`*^9, 3.6001142518230243`*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"Part", " ", "2"}], ":", " ", 
+   RowBox[{"Dependence", " ", "of", " ", "Time", " ", "on", " ", "Length"}]}],
+  FontSize->14]], "Input",
+ CellChangeTimes->{{3.600114291337284*^9, 3.600114292710363*^9}, {
+  3.600116868019662*^9, 3.6001168770541787`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "=", 
+    SuperscriptBox["T2", "2"]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Period", " ", "Squared", " ", 
+    RowBox[{"(", 
+     SuperscriptBox["s", "2"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"y", "[", "x_", "]"}], "=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"4", "*", 
+       FractionBox[
+        SuperscriptBox["\[Pi]", "2"], "9.796"]}], ")"}], "*", "x"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Equation", " ", "for", " ", "the", " ", "theoretical", " ", "dependence", 
+    " ", "of", " ", "period", " ", "squared", " ", "vs", " ", "string", " ", 
+    "length"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PvsL2", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"L2", ",", "P"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PvsL2graph", "=", " ", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"PvsL2", ",", " ", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", 
+      "\"\<Period squared vs String length with theory\>\""}], ",", " ", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Length of String (m)\>\"", ",", " ", 
+        "\"\<Period squared (\!\(\*SuperscriptBox[\(s\), \(2\)]\))\>\""}], 
+       "}"}]}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0.2", ",", "1.5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PvsL2theory", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"y", "[", "x", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", ".4", ",", "2.0"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"PvsL2graph", ",", "PvsL2theory"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6001143359828377`*^9, 3.600114374462039*^9}, {
+  3.6001150770102224`*^9, 3.600115108925048*^9}, {3.60011514691022*^9, 
+  3.600115155435708*^9}, {3.60011520354346*^9, 3.600115454307802*^9}, {
+  3.600115548607196*^9, 3.600115641901532*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {{}, 
+     {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+      PointBox[{{1.134075, 4.613904000000001}, {0.821075, 
+       3.3489000000000004`}, {0.375075, 1.5351210000000002`}, {0.642075, 
+       2.621161}, {1.041575, 4.182024999999999}}]}, {}}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwVxX041AccAPDrnJyXy+Wcl3Pu96vohTyS9KwW329X1rxVFIcYK4otL6Gm
+onDUg6USKytWG2Erbz27Ct3kQaklRBwlba55ifMS587Lb9sfn+ez4mCUVyid
+RqN5/Of/xZtKa/PyZGBnZPxb1zMV8ApVk7/ckkFU/mHfiXYVVHFc15WVyuCu
+hURTt1cFf00O59Y/lIGVvXew04gKtleujxqRyWDV3ivcIl01UDYVKxx5PcDN
+0E+KcVfD6TX3z/X/2AOzC1rerBY1xPIa96650QtS+eyisG0O+paPKuab30I1
+JBW4aCyCw+Ekg972d5AdvfYVk0nDjlLbp3WD/dDB49nt0l6CruuK9B4svAeP
+jL5N+0g6bha1ZtvT/obE/Ccf/7DQwP4LyYJ9JgMwcFzsqnZioMnl7i4faznI
+ir+k6+/XxCahvL3P+gOkJW6MTPVZinYL373SEf4DR0wUZ59EaiHncB23xnkQ
+6KJW52/jmCi+Xpa2Z+cQWCmqQ4fitLFCtnLuvO8wpLvHWztk6qBXk3vVTv8R
+KPDwL3qfpYtVNfORRcc+wghHv/FAiR7eTPTyGxaPQoP9C6eKWhYyxgLT7onH
+wFtZfjRUugwtjygkZJ4CzJNCcbBTH4N2mXG1d4/DntfEQGgEG9PfJbft6xkH
+qz0zp6RqNqoDawrZIRPwZ1ybU2racrx97+W1iwMT4PJRGqBeaoCVrOKL/VGT
+cLAp10N0xQCVTn7FUxOTIJo8cy3EiIOpPn2d8cemwOD5Ufa7HzgYHbNaq3Vu
+CsKX7jyAKw3xaqiL31DCJ7h+xYbmVWiI/EDbsg7mNISLafGudlwc3DpoujF7
+GhaIbn5FDRcVitO3PQ1mIGJZvVnTNiP0Lm132JE/A/FBuaP1T41wZgvjw4xA
+CcH006bRbsbYV8G8yy9QAssrNCbjuTFarm89Ybh2FkSMLQWZPiZYfCbm65aS
+WUhgEhaO3SZ4vrNrt/8mFThGjSV0hpjizxomgSUSFcjWtNoKBk2RYWKdErZZ
+DZ9fkOh3hPGwccOSX9V1atjifa4++hMPH5NVk7uFc8CJCnv56IQZ8rmrnY63
+zEH6iH35hAYfpYqjN1m+89BoyKjNzuLj9VtZq8K65+HtxQ8rB/TN8bUotjTn
+0AJciqgK4N8wR3f5xr1i+QII8i+NMwgBavs1sgZCFiH2ZGyl/08CtGzjtRgp
+FiHkAThftSIwgXQr142mwM5FYJ96h8CggW+S3GIocPDsFD0tI1BYkuGZGUfB
+Vr/vE/QqCWRueDalc5ICYbi6Med3AnPB5TOdFAq801/7FkkJLPtq12NmDgWn
+mrPONLUS+P7GjleaDyhocKGamdMENgQfKnSupqDZUzLmriSwxEJ8PK2Wgha/
+CM5lFYGRd+qNNR9T0BXeG2C6SKC6ZnsA4xkF0w29yhwNEg17QU5/Q4GW/H5G
+kR6JyoIgibCPAp1wTv4TFok9B8+eT+mnQG80snxoGYk3h6Xr6HIK2NOWHTbL
+SbRRO0YuGaOAp5ljLuGSyJYGwvZxCvjpCttuIxI/JSeykycpIFhuQrUxidXa
+j6poSgpWcelHnHgk5r94I0YVBZZ5gSeDzUhMujy/P2mOgrXmDzNT+CQe8uav
+rlugwOqWYUGhOYlfmG5TUhQF6y2jK5oEJP4LlPk/ng==
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Length of String (m)\"", TraditionalForm], 
+    FormBox[
+    "\"Period squared (\\!\\(\\*SuperscriptBox[\\(s\\), \\(2\\)]\\))\"", 
+     TraditionalForm]},
+  AxesOrigin->{0.2, 1.},
+  ImageSize->{421., Automatic},
+  Method->{},
+  PlotLabel->FormBox[
+   "\"Period squared vs String length with theory\"", TraditionalForm],
+  PlotRange->{{0.2, 1.5}, {1, 5}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.600115461040188*^9, 3.600115579762978*^9, {3.6001156125158515`*^9, 
+   3.600115644902704*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "When", " ", "the", " ", "period", " ", "T", " ", "is", " ", "squared", " ",
+    "it", " ", "forms", " ", "a", " ", "linear", " ", "line"}], ",", " ", 
+  "however", ",", " ", 
+  RowBox[{
+   RowBox[{"when", " ", "its", " ", "un"}], "-", 
+   RowBox[{"squared", " ", "it", " ", "creates", " ", "a", " ", 
+    RowBox[{"parabola", ".", " ", "In"}], " ", "simple", " ", "words"}]}], 
+  ",", " ", 
+  RowBox[{
+  "having", " ", "the", " ", "period", " ", "squared", " ", "allows", " ", 
+   "us", " ", "to", " ", "have", " ", "a", " ", "Best", " ", "Fit", " ", 
+   "Line", " ", "for", " ", "the", " ", "graph", " ", "and", " ", 
+   RowBox[{"calculations", ".", " "}]}]}]], "Input",
+ CellChangeTimes->{{3.600115821137784*^9, 3.600115905725622*^9}, {
+  3.6001159531993375`*^9, 3.600115993789659*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"Part", " ", "3"}], ":", " ", 
+   RowBox[{"Dependence", " ", "of", " ", "T", " ", "on", " ", "amplitude"}]}],
+  FontSize->14]], "Input",
+ CellChangeTimes->{{3.6001160565312476`*^9, 3.600116068497932*^9}, {
+  3.60011621077207*^9, 3.6001162130121975`*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"PA", "[", "\[Phi]_", "]"}], "=", 
+    RowBox[{"2", "*", "\[Pi]", "*", 
+     SqrtBox[
+      FractionBox["L", "9.796"]], "*", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       RowBox[{
+        FractionBox["1", "16"], 
+        SuperscriptBox["\[Phi]", "2"]}], "+", 
+       RowBox[{
+        FractionBox["11", "3072"], 
+        SuperscriptBox["\[Phi]", "4"]}]}], ")"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Equation", " ", "11", " ", 
+    RowBox[{"(", "Theoretical", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PAgraph", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"T3vs\[Theta]", ",", " ", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", "\"\<Period vs Max Angle with Theory\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Initial Angle (rad)\>\"", ",", "\"\<Period (s)\>\""}], 
+       "}"}]}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1.2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "2.3"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PAtheory", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"PA", "[", "\[Phi]", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Phi]", ",", "0", ",", "1.2"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"PAgraph", ",", " ", "PAtheory"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6001160916512566`*^9, 3.600116429753595*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {{}, 
+     {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+      PointBox[{{0.08726646259971647, 2.0469}, {0.17453292519943295`, 
+       2.0498}, {0.2617993877991494, 2.0563}, {0.3490658503988659, 2.0627}, {
+       0.4363323129985824, 2.0717}, {0.5235987755982988, 2.0834}, {
+       0.6108652381980153, 2.0931}, {0.6981317007977318, 2.1068}, {
+       0.7853981633974483, 2.13}, {0.8726646259971648, 2.145}, {
+       0.9599310885968813, 2.178}, {1.0471975511965976`, 2.1956}, {
+       1.1344640137963142`, 2.225}, {1.2217304763960306`, 
+       2.2362}}]}, {}}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1: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
+GEKoOV2YXor9fwjaaLk=
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Initial Angle (rad)\"", TraditionalForm], 
+    FormBox["\"Period (s)\"", TraditionalForm]},
+  AxesOrigin->{0, 2.},
+  Method->{},
+  PlotLabel->FormBox["\"Period vs Max Angle with Theory\"", TraditionalForm],
+  PlotRange->{{0, 1.2}, {2, 2.3}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6001164121075854`*^9, 3.600116430944663*^9}}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  StyleBox["Conclusions",
+   FontSize->24], 
+  StyleBox[" ",
+   FontSize->24], 
+  StyleBox["\[IndentingNewLine]",
+   FontFamily->"Constantia",
+   FontSize->24,
+   FontWeight->"Plain"]}], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     RowBox[{"Part", " ", "1"}], ":", 
+     RowBox[{"Precision", " ", "determination", " ", "of", " ", "g"}]}],
+    FontSize->16,
+    FontWeight->"Plain"], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->14], "\t", 
+   RowBox[{"The", " ", "experimental", " ", "g", " ", "was", " ", 
+    RowBox[{"(", 
+     RowBox[{"9.80", "\[PlusMinus]", "0.0045"}], ")"}], 
+    RowBox[{
+     FractionBox["m", 
+      SuperscriptBox["s", "2"]], ".", "This"}], " ", "value", " ", "is", " ", 
+    "accepted", " ", "because", " ", "it", " ", "lies", " ", "in", " ", "the",
+     " ", "error", " ", "bound", " ", "of", " ", "the", " ", "gravity", " ", 
+    "of", " ", "Boulder", " ", "9.796", " ", 
+    RowBox[{
+     FractionBox["m", 
+      SuperscriptBox["s", "2"]], ".", "The"}], " ", "amount", " ", "of", " ", 
+    "error", " ", "can", " ", "be", " ", "explained", " ", "to", " ", "the", 
+    " ", "lack", " ", "of", " ", "accuracy", " ", "of", " ", "the", " ", 
+    "degrees", " ", "measured", " ", "from", " ", "which", " ", "the", " ", 
+    "pendulum", " ", "was", " ", "released", " ", "giving", " ", "us", " ", 
+    "a", " ", "more", " ", "accurate", " ", "g", " ", "than", " ", "what", 
+    " ", "was", " ", "given", " ", "during", " ", "this", " ", "lab", " ", 
+    RowBox[{"experiment", ".", " "}]}]}],
+  FontFamily->"Constantia",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.600116967359344*^9, 3.6001169734136906`*^9}, {
+   3.6001170209744105`*^9, 3.6001171840397377`*^9}, {3.600117288829731*^9, 
+   3.600117377125781*^9}, {3.600117409851653*^9, 3.6001174294177723`*^9}, {
+   3.6001174624196596`*^9, 3.6001174994467773`*^9}, 3.6001175351738214`*^9, {
+   3.600117753051283*^9, 3.600117753934334*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   StyleBox["\[IndentingNewLine]",
+    FontSize->16], 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      RowBox[{"Part", " ", "2"}], ":", 
+      RowBox[{
+      "Dependence", " ", "of", " ", "Time", " ", "on", " ", "Length"}]}],
+     FontSize->16], 
+    StyleBox[" ",
+     FontSize->16], "\[IndentingNewLine]", "\t", 
+    RowBox[{
+    "When", " ", "the", " ", "period", " ", "was", " ", "squared", " ", "it", 
+     " ", "results", " ", "into", " ", "a", " ", "linear", " ", "function", 
+     " ", 
+     RowBox[{"(", 
+      RowBox[{"best", " ", "fit", " ", "line"}], ")"}], " ", "allowing", " ", 
+     "us", " ", "to", " ", "do", " ", "more", " ", "precise", " ", 
+     "calculations", " ", "based", " ", "on", " ", "the", " ", 
+     RowBox[{"graph", ".", " ", "The"}], " ", "points", " ", "fall", " ", 
+     "close", " ", "enough", " ", "to", " ", "the", " ", "linear", " ", 
+     "line", " ", "giving", " ", "us", " ", "an", " ", "idea", " ", "of", " ",
+      "the", " ", 
+     RowBox[{"error", ".", " ", "The"}], " ", "error", " ", "is", " ", 
+     "extremely", " ", "small", " ", "which", " ", "is", " ", "reflected", 
+     " ", "by", " ", "the", " ", "linear", " ", 
+     RowBox[{"graph", ".", " ", "The"}], " ", "error", " ", "can", " ", "be", 
+     " ", "explained", " ", "through", " ", "the", " ", "measurement", " ", 
+     "of", " ", "the", " ", "strings", " ", "with", " ", "the", " ", "2", " ",
+      "meter", " ", 
+     RowBox[{"stick", ".", " ", "The"}], " ", "2", " ", "meter", " ", "stick",
+      " ", "was", " ", "not", " ", "accurate", " ", "nor", " ", "was", " ", 
+     "it", " ", "easy", " ", "to", " ", "spread", " ", "out", " ", "the", " ",
+      "string", " ", "on", " ", "the", " ", "stick", " ", "to", " ", "get", 
+     " ", "an", " ", "exact", " ", 
+     RowBox[{"measurement", ".", " ", "The"}], " ", "precision", " ", "lies", 
+     " ", "in", " ", "millimeters", " ", "which", " ", "isnt", " ", "as", " ", 
+     RowBox[{"accurate", ".", " ", "The"}], " ", "data", " ", "recorded", " ",
+      "is", " ", "still", " ", "precise", " ", "but", " ", "it", " ", "could",
+      " ", "be", " ", "more", " ", "precise", " ", "with", " ", "a", " ", 
+     "better", " ", "and", " ", "more", " ", "accurate", " ", "measuring", 
+     " ", 
+     RowBox[{"tool", ".", "\[IndentingNewLine]"}]}]}]}],
+  FontFamily->"Constantia",
+  FontWeight->"Plain"]], "Input",
+ CellChangeTimes->{{3.6001175572130814`*^9, 3.600117591067018*^9}, {
+  3.6001176879385586`*^9, 3.6001179425891237`*^9}, {3.60011801455624*^9, 
+  3.6001180345113816`*^9}, {3.6001183832543287`*^9, 3.6001183862314987`*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     RowBox[{"Part", " ", "3"}], ":", " ", 
+     RowBox[{
+     "Dependence", " ", "of", " ", "time", " ", "on", " ", "amplitude"}]}],
+    FontSize->16], 
+   StyleBox[" ",
+    FontSize->16]}],
+  FontFamily->"Constantia",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"\t", 
+   RowBox[{
+    RowBox[{
+    "The", " ", "data", " ", "collected", " ", "happens", " ", "to", " ", 
+     "accurate", " ", "as", " ", "it", " ", "is", " ", "pretty", " ", "close",
+      " ", "to", " ", "the", " ", "theoretical", " ", 
+     RowBox[{"line", ".", " ", "There"}], " ", "are", " ", "few", " ", "data",
+      " ", "points", " ", "that", " ", "are", " ", "a", " ", "little", " ", 
+     "bit", " ", "off"}], ",", " ", 
+    RowBox[{
+    "mostly", " ", "the", " ", "later", " ", "ones", " ", "because", " ", 
+     "as", " ", "the", " ", "mass", " ", "passes", " ", "through", " ", 
+     "more", " ", "air", " ", "resistance"}], ",", " ", 
+    RowBox[{
+    "it", " ", "lowers", " ", "the", " ", "amplitude", " ", "leading", " ", 
+     "to", " ", "shortening", " ", "the", " ", 
+     RowBox[{"amplitude", ".", " ", "The"}], " ", "more", " ", "acurate", " ",
+      "angels", " ", "were", " ", "the", " ", "lower", " ", "ones", " ", "in",
+      " ", "comparision", " ", "to", " ", "the", " ", "higher", " ", 
+     RowBox[{"ones", ".", " "}]}]}]}],
+  FontFamily->"Constantia",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.600118042297827*^9, 3.6001180616559343`*^9}, {
+  3.600118142626566*^9, 3.600118289429962*^9}, {3.6001183496644073`*^9, 
+  3.6001183510684876`*^9}, {3.600118401185354*^9, 3.6001184036544952`*^9}}]
+},
+WindowSize->{701, 810},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 255, 7, 56, "Input"],
+Cell[815, 29, 1676, 30, 172, "Input"],
+Cell[2494, 61, 173, 5, 31, "Input"],
+Cell[2670, 68, 2488, 73, 240, "Input"],
+Cell[5161, 143, 1189, 21, 112, "Input"],
+Cell[6353, 166, 286, 7, 52, InheritFromParent],
+Cell[CellGroupData[{
+Cell[6664, 177, 2773, 72, 328, "Input"],
+Cell[9440, 251, 246, 6, 31, "Output"],
+Cell[9689, 259, 532, 14, 116, "Output"],
+Cell[10224, 275, 736, 17, 227, "Output"]
+}, Open  ]],
+Cell[10975, 295, 1186, 23, 172, "Input"],
+Cell[12164, 320, 178, 5, 31, "Input"],
+Cell[CellGroupData[{
+Cell[12367, 329, 3288, 79, 340, "Input"],
+Cell[15658, 410, 871, 22, 260, "Output"],
+Cell[16532, 434, 1115, 22, 240, "Output"]
+}, Open  ]],
+Cell[17662, 459, 96, 1, 31, "Input"],
+Cell[17761, 462, 187, 4, 36, "Input"],
+Cell[17951, 468, 353, 9, 31, "Input"],
+Cell[CellGroupData[{
+Cell[18329, 481, 1747, 46, 214, "Input"],
+Cell[20079, 529, 89, 1, 31, "Output"],
+Cell[20171, 532, 91, 1, 31, "Output"]
+}, Open  ]],
+Cell[20277, 536, 638, 15, 67, InheritFromParent],
+Cell[CellGroupData[{
+Cell[20940, 555, 512, 11, 72, "Input"],
+Cell[21455, 568, 92, 1, 31, "Output"]
+}, Open  ]],
+Cell[21562, 572, 528, 11, 52, "Input"],
+Cell[22093, 585, 300, 7, 31, "Input"],
+Cell[CellGroupData[{
+Cell[22418, 596, 2174, 62, 282, "Input"],
+Cell[24595, 660, 2714, 53, 245, "Output"]
+}, Open  ]],
+Cell[27324, 716, 855, 18, 92, "Input"],
+Cell[28182, 736, 331, 8, 31, "Input"],
+Cell[CellGroupData[{
+Cell[28538, 748, 1598, 47, 179, "Input"],
+Cell[30139, 797, 4301, 76, 223, "Output"]
+}, Open  ]],
+Cell[34455, 876, 1987, 45, 183, "Input"],
+Cell[36445, 923, 2654, 51, 222, "Input"],
+Cell[39102, 976, 1689, 38, 127, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

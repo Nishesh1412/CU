@@ -1,0 +1,1356 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     49361,       1347]
+NotebookOptionsPosition[     46561,       1252]
+NotebookOutlinePosition[     46905,       1267]
+CellTagsIndexPosition[     46862,       1264]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Lab E4:  Capacitors and the RC Circuit", "Title",
+ CellChangeTimes->{{3.6051094222002487`*^9, 3.6051094329807*^9}, 
+   3.605110082899192*^9}],
+
+Cell["Introduction", "Subtitle",
+ CellChangeTimes->{{3.605109443791314*^9, 3.6051094461248293`*^9}}],
+
+Cell["\<\
+This particular lab\[CloseCurlyQuote]s purpose is to understand and get used \
+to the concept of capactiors and the RC circuit. The capactiors are widely \
+used in modern day electronic devices and technology. Any two conducts that \
+are brought near each other form a capacitor. This lab contains two parts to \
+it. The main goal for this lab is to use the fundamental theories of \
+capactiance and get familiarized to various different equipments to measure \
+the capacitance. \
+\>", "Text",
+ CellChangeTimes->{{3.605109600811372*^9, 3.605109603080627*^9}, {
+  3.605109960968946*^9, 3.605109974422057*^9}, {3.605110067765677*^9, 
+  3.6051101358496447`*^9}, {3.605110240411764*^9, 3.605110268541917*^9}, {
+  3.605110363045783*^9, 3.605110434673214*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Data", "Subtitle",
+ CellChangeTimes->{{3.605110454114677*^9, 3.6051104569839907`*^9}}],
+
+Cell["\<\
+Introduction to Part 1: Capactiance of parallel plates\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.605110466050621*^9, 3.605110485815064*^9}, {
+  3.605111536828176*^9, 3.605111537025634*^9}}],
+
+Cell[TextData[{
+ "In this particular part of the lab the purpose is to measure the \
+capacitance of a parallel- plate capicator as a function of the plate \
+seperation. Hence, the permittivity constant Eo using the following equation: \
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"C", "=", 
+    RowBox[{
+     RowBox[{"Eo", "(", 
+      FractionBox["A", "d"], ")"}], "."}]}], TraditionalForm]]],
+ "This particular experiment has to be performed on a table made out of wood \
+due to the presence of large, electrically conducting objects, metal tables, \
+affect the delicate capacitance measurement. In order to achiever effective \
+data, we should be a few feet away from the plates and ntoe the capactiance \
+on the meter, this would be considered the zero capacitance. This is because \
+human beings are made up of salty water, an excellent conductor, hence, the \
+presence of human beings can affect the reading if they are too close. The \
+average thickness of the washers should be measured. Then, one by one washers \
+would be added and then take the measurement of the capacitor. In theory, the \
+capacticance must be proportional to ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", "d"], TraditionalForm]]],
+ ". Signifying that if we were to plot a graph of the Capcitance vs. ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", "d"], TraditionalForm]]],
+ " the result should be linear. Hence, the value of Eo could be calculated \
+through the measured capacitance, area, and distance. Thus, the comparison \
+between the calculated value and the theoretical value could be done in order \
+to determine the precision and accuracy of our calculated value. We would \
+also compute the average of all the Eo values, the standard deviation and the \
+error of the mean; resulting in acquiring a value of Eo in a standard format. "
+}], "Text",
+ CellChangeTimes->{{3.605110596262754*^9, 3.605110886868403*^9}, {
+  3.605110920500305*^9, 3.605110976177904*^9}, {3.6051110184491262`*^9, 
+  3.605111064180729*^9}, {3.60511113107021*^9, 3.605111131284306*^9}, {
+  3.6051111662483387`*^9, 3.605111234634591*^9}, {3.605111305273341*^9, 
+  3.6051113852622337`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Part 1 Data:", "Subsubtitle",
+ CellChangeTimes->{{3.6051115742513237`*^9, 3.605111578247851*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"thirtywash", "=", "0.0483"}], ";", 
+   RowBox[{"(*", 
+    RowBox[{"30", " ", "washers", " ", 
+     RowBox[{"(", "m", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"avgwash", "=", 
+    FractionBox["thirtywash", "30"]}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Average", " ", "of", " ", "each", " ", "washer", " ", 
+    RowBox[{"(", "m", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Aplate", "=", "0.093"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Area", " ", "of", " ", "the", " ", "Plates", " ", 
+    RowBox[{"(", 
+     SuperscriptBox["m", "2"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Zerocap", "=", 
+    RowBox[{
+     RowBox[{"-", "7"}], "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "15"}]]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"The", " ", "Zero", " ", "capacitance", " ", 
+    RowBox[{"(", "F", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Straycap", "=", 
+    RowBox[{"29", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "12"}]]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"The", " ", "Stray", " ", "Capacitance", " ", 
+    RowBox[{"(", "F", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"thickne", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "0.00161", ",", "0.00322", ",", "0.00483", ",", "0.00644", ",", 
+      "0.00805", ",", "0.00966"}], "}"}]}], ";", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Thickness", " ", "of", " ", "each", " ", "washer", " ", "from", " ", "1",
+      " ", "to", " ", "6", " ", 
+     RowBox[{"(", "m", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Capacitance", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"5.08", "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "10"}]]}], ",", 
+      RowBox[{"2.74", "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "10"}]]}], ",", 
+      RowBox[{"1.93", "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "10"}]]}], ",", 
+      RowBox[{"1.53", "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "10"}]]}], ",", 
+      RowBox[{"1.32", "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "10"}]]}], ",", 
+      RowBox[{"1.18", "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "10"}]]}]}], "}"}]}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Capacitance", " ", "of", " ", "each", " ", "washer", " ", "respectively",
+      " ", 
+     RowBox[{"(", "F", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Washers", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], "}"}]}],
+    ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Amount", " ", "of", " ", "washers"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Interplatecapcitance", "=", " ", 
+    RowBox[{"Capacitance", "-", "Straycap"}]}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Interplate", " ", "Capacitance", " ", 
+     RowBox[{"(", "F", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"ood", "=", 
+    FractionBox["1", "thickne"]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    FractionBox["1", "d"], " ", "in", " ", 
+    RowBox[{"(", "m", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ptable", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "Washers", ",", "thickne", ",", "Capacitance", ",", 
+      "Interplatecapcitance", ",", " ", "ood"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Grid", "[", " ", 
+  RowBox[{
+   RowBox[{"Prepend", "[", 
+    RowBox[{"Ptable", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Washers\>\"", ",", " ", "\"\<Thickness (m)\>\"", ",", " ", 
+       "\"\<Capacitance (F)\>\"", ",", " ", 
+       "\"\<Interplate Capacitance (F)\>\"", ",", " ", "\"\<1/d (m)\>\""}], 
+      "}"}]}], "]"}], ",", " ", 
+   RowBox[{"Frame", " ", "\[Rule]", " ", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6058932692543077`*^9, 3.6058935471540947`*^9}, {
+  3.6058936549198704`*^9, 3.6058939258749633`*^9}, {3.605893972525628*^9, 
+  3.605894196128986*^9}, {3.6058942615475273`*^9, 3.605894298254197*^9}, {
+  3.6058943755799294`*^9, 3.6058945495583253`*^9}, {3.605894579850354*^9, 
+  3.6058945802733965`*^9}, {3.605894614171558*^9, 3.605894671903558*^9}}],
+
+Cell[BoxData["0.00161`"], "Output",
+ CellChangeTimes->{{3.6058933267740593`*^9, 3.6058933479391756`*^9}, 
+   3.6058934621455946`*^9, 3.6058935486262417`*^9, {3.6058938556239386`*^9, 
+   3.6058938638727636`*^9}, 3.605894133432717*^9, 3.605894301933565*^9, {
+   3.6058943809184628`*^9, 3.605894422510622*^9}, {3.6058945258569555`*^9, 
+   3.6058945516315327`*^9}, 3.6058945834117107`*^9, 3.605894624860558*^9, {
+   3.605894663756558*^9, 3.6058946732665577`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Washers\"\>", "\<\"Thickness (m)\"\>", "\<\"Capacitance (F)\"\>", "\
+\<\"Interplate Capacitance (F)\"\>", "\<\"1/d (m)\"\>"},
+    {"1", "0.00161`", "5.08`*^-10", "4.79`*^-10", "621.1180124223602`"},
+    {"2", "0.00322`", "2.7400000000000004`*^-10", "2.4500000000000003`*^-10", 
+     "310.5590062111801`"},
+    {"3", "0.00483`", "1.93`*^-10", "1.64`*^-10", "207.0393374741201`"},
+    {"4", "0.00644`", "1.5300000000000001`*^-10", "1.24`*^-10", 
+     "155.27950310559004`"},
+    {"5", "0.00805`", "1.32`*^-10", "1.03`*^-10", "124.22360248447205`"},
+    {"6", "0.00966`", "1.18`*^-10", "8.9`*^-11", "103.51966873706004`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.6058933267740593`*^9, 3.6058933479391756`*^9}, 
+   3.6058934621455946`*^9, 3.6058935486262417`*^9, {3.6058938556239386`*^9, 
+   3.6058938638727636`*^9}, 3.605894133432717*^9, 3.605894301933565*^9, {
+   3.6058943809184628`*^9, 3.605894422510622*^9}, {3.6058945258569555`*^9, 
+   3.6058945516315327`*^9}, 3.6058945834117107`*^9, 3.605894624860558*^9, {
+   3.605894663756558*^9, 3.6058946732705584`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Introduction to Part 2:", "Subsubtitle",
+ CellChangeTimes->{{3.6058948410415583`*^9, 3.605894843241558*^9}, {
+  3.605894875831558*^9, 3.605894878879558*^9}}],
+
+Cell[TextData[{
+ "In this particular part of the lab, the exponential decay of the voltage on \
+a capacitor in an RC circuit using the digital oscilloscope will be \
+observed.The time constant T of the decay would be measured and then we will \
+compare with the computed T=RC. In this part change the time and observe the \
+change in voltage, it helps in determining the time constant T. We will start \
+by recording the voltage and time of 10 or more points along the exponential \
+decay, including 5/6 points int he first part fo the curve between the \
+initial voltage Vo and ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["Vo", "3"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". Theoretically, after ploting out data of V vs. T and ln(V) vs. T, T \
+should be a straight line with a slope of ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"-", "1"}], "T"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". "
+}], "Text",
+ CellChangeTimes->{{3.605894896694558*^9, 3.6058949978891582`*^9}, {
+  3.6058950705164204`*^9, 3.6058951856009283`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 2 Data:", "Subsubtitle",
+ CellChangeTimes->{{3.605895215666934*^9, 3.6058952182821956`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Cap2", "=", 
+    RowBox[{"2.26", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "5"}]]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Capactiance", " ", 
+    RowBox[{"(", "F", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Resis", "=", " ", "993"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Resistance", " ", 
+    RowBox[{"(", "Ohm", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RC", "=", "0.022"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"RC", " ", 
+    RowBox[{"(", 
+     RowBox[{"F", 
+      RowBox[{"(", "ohm", ")"}]}], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "0.000", ",", "0.002", ",", "0.003", ",", "0.004", ",", "0.005", ",", 
+      "0.006", ",", "0.007", ",", "0.008", ",", "0.009", ",", "0.010", ",", 
+      "0.013", ",", "0.017"}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Time", " ", "in", " ", 
+    RowBox[{"(", "s", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Volt", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "3.62", ",", "3.50", ",", "3.26", ",", "2.74", ",", "2.46", ",", "2.26", 
+      ",", "2.10", ",", "1.94", ",", "1.82", ",", "1.66", ",", "1.42", ",", 
+      "1.14"}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Voltage", " ", "readings", " ", 
+    RowBox[{"(", "V", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ntable", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"T", ",", "Volt"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"NumberForm", "[", 
+  RowBox[{
+   RowBox[{"Grid", "[", " ", 
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{"Ntable", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Time (s)\>\"", ",", " ", "\"\<Voltage (V)\>\""}], 
+        "}"}]}], "]"}], ",", " ", 
+     RowBox[{"Frame", " ", "\[Rule]", " ", "All"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "3"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lnv", "=", " ", 
+   RowBox[{"Log", "[", "Volt", "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "natural", " ", "log", " ", "of", " ", "Voltage", " ", 
+    RowBox[{"(", "V", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"naturallog", "=", "lnv"}]}], "Input",
+ CellChangeTimes->{{3.605895457782143*^9, 3.605895549651329*^9}, {
+  3.605895648659901*^9, 3.605895679169901*^9}, {3.605895727103901*^9, 
+  3.6058959786312275`*^9}, {3.60589601556192*^9, 3.6058961097723403`*^9}, {
+  3.6059014049183826`*^9, 3.60590142279117*^9}, {3.6059017004029284`*^9, 
+  3.605901711497038*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"Time (s)\"\>", "\<\"Voltage (V)\"\>"},
+     {
+      InterpretationBox["\<\"0.000\"\>",
+       0.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"3.620\"\>",
+       3.62,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.002\"\>",
+       0.002,
+       AutoDelete->True], 
+      InterpretationBox["\<\"3.500\"\>",
+       3.5,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.003\"\>",
+       0.003,
+       AutoDelete->True], 
+      InterpretationBox["\<\"3.260\"\>",
+       3.26,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.004\"\>",
+       0.004,
+       AutoDelete->True], 
+      InterpretationBox["\<\"2.740\"\>",
+       2.74,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.005\"\>",
+       0.005,
+       AutoDelete->True], 
+      InterpretationBox["\<\"2.460\"\>",
+       2.46,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.006\"\>",
+       0.006,
+       AutoDelete->True], 
+      InterpretationBox["\<\"2.260\"\>",
+       2.26,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.007\"\>",
+       0.007,
+       AutoDelete->True], 
+      InterpretationBox["\<\"2.100\"\>",
+       2.1,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.008\"\>",
+       0.008,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.940\"\>",
+       1.94,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.009\"\>",
+       0.009,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.820\"\>",
+       1.82,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.010\"\>",
+       0.01,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.660\"\>",
+       1.66,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.013\"\>",
+       0.013,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.420\"\>",
+       1.42,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.017\"\>",
+       0.017,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.140\"\>",
+       1.14,
+       AutoDelete->True]}
+    },
+    AutoDelete->False,
+    GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"],
+  NumberForm[#, {10, 3}]& ]], "Output",
+ CellChangeTimes->{
+  3.605895928520217*^9, 3.6058959800373683`*^9, 3.6058960318965535`*^9, 
+   3.6058961064430075`*^9, {3.6059014058344746`*^9, 3.6059014250393944`*^9}, 
+   3.605901502012091*^9, 3.605901713294217*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.2864740258376797`", ",", "1.252762968495368`", ",", 
+   "1.1817271953786161`", ",", "1.007957920399979`", ",", 
+   "0.9001613499442714`", ",", "0.8153648132841944`", ",", 
+   "0.7419373447293773`", ",", "0.6626879730752367`", ",", 
+   "0.598836501088704`", ",", "0.5068176023684519`", ",", 
+   "0.35065687161316933`", ",", "0.131028262406404`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.605895928520217*^9, 3.6058959800373683`*^9, 3.6058960318965535`*^9, 
+   3.6058961064430075`*^9, {3.6059014058344746`*^9, 3.6059014250393944`*^9}, 
+   3.605901502012091*^9, 3.6059017132992177`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.2864740258376797`", ",", "1.252762968495368`", ",", 
+   "1.1817271953786161`", ",", "1.007957920399979`", ",", 
+   "0.9001613499442714`", ",", "0.8153648132841944`", ",", 
+   "0.7419373447293773`", ",", "0.6626879730752367`", ",", 
+   "0.598836501088704`", ",", "0.5068176023684519`", ",", 
+   "0.35065687161316933`", ",", "0.131028262406404`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.605895928520217*^9, 3.6058959800373683`*^9, 3.6058960318965535`*^9, 
+   3.6058961064430075`*^9, {3.6059014058344746`*^9, 3.6059014250393944`*^9}, 
+   3.605901502012091*^9, 3.605901713302218*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Data Analyisis:", "Subtitle",
+ CellChangeTimes->{{3.6058961283882017`*^9, 3.6058961356599293`*^9}}],
+
+Cell["Part 1:", "Subsubtitle",
+ CellChangeTimes->{{3.6058961458769503`*^9, 3.6058961484042034`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Cvsd", " ", "=", " ", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"ood", ",", " ", "Interplatecapcitance"}], "}"}], "]"}]}], 
+   ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"{", "Cvsd", "}"}], ",", " ", 
+    RowBox[{
+    "PlotLabel", " ", "\[Rule]", " ", 
+     "\"\<Interplate Capacitance (F) vs\!\(\*FractionBox[\(1\), \(distance\)]\
+\)(m)\>\""}], ",", " ", 
+    RowBox[{"AxesLabel", " ", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<\!\(\*FractionBox[\(1\), \(d\)]\)(m)\>\"", ",", 
+       "\"\<Interplate Capacitance (F)\>\""}], "}"}]}], ",", " ", 
+    RowBox[{"PlotRange", " ", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.00", ",", "630"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"0.1", "*", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "10"}]]}], ",", 
+         RowBox[{"6.0", "*", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "10"}]]}]}], "}"}]}], "}"}]}]}], "]"}], 
+  " "}]}], "Input",
+ CellChangeTimes->{{3.605896171855548*^9, 3.605896293926754*^9}, {
+  3.6058963413925*^9, 3.605896476520012*^9}, {3.6058965828366423`*^9, 
+  3.6058966470150595`*^9}, {3.605896725484347*^9, 3.6058969271923466`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000017`, 0.24, 0.6], 
+     PointBox[{{621.1180124223602, 4.79*^-10}, {310.5590062111801, 
+      2.4500000000000003`*^-10}, {207.0393374741201, 1.64*^-10}, {
+      155.27950310559004`, 1.24*^-10}, {124.22360248447205`, 1.03*^-10}, {
+      103.51966873706004`, 8.9*^-11}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox[
+    "\"\\!\\(\\*FractionBox[\\(1\\), \\(d\\)]\\)(m)\"", TraditionalForm], 
+    FormBox["\"Interplate Capacitance (F)\"", TraditionalForm]},
+  AxesOrigin->{0, 2.*^-11},
+  Method->{},
+  PlotLabel->FormBox[
+   "\"Interplate Capacitance (F) vs\\!\\(\\*FractionBox[\\(1\\), \
+\\(distance\\)]\\)(m)\"", TraditionalForm],
+  PlotRange->{{0., 630}, {1.0000000000000001`*^-11, 6.*^-10}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.6058968826973467`*^9, {3.6058969176473465`*^9, 3.605896928323347*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{
+   RowBox[{"{", "Cvsd", "}"}], ",", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", 
+    "\"\<Interplate Capacitance (F) vs\\!\\(\\*FractionBox[\\(1\\), \
+\\(distance\\)]\\)(m)\>\""}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\\!\\(\\*FractionBox[\\(1\\), \\(d\\)]\\)(m)\>\"", ",", 
+      "\"\<Interplate Capacitance (F)\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0.`", ",", "630"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        FractionBox["0.1`", 
+         SuperscriptBox["10", "10"]], ",", 
+        FractionBox["6.`", 
+         SuperscriptBox["10", "10"]]}], "}"}]}], "}"}]}]}], "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.24720000000000017`, 0.24, 0.6], 
+     LineBox[{{621.1180124223602, 4.79*^-10}, {310.5590062111801, 
+      2.4500000000000003`*^-10}, {207.0393374741201, 1.64*^-10}, {
+      155.27950310559004`, 1.24*^-10}, {124.22360248447205`, 1.03*^-10}, {
+      103.51966873706004`, 8.9*^-11}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox[
+    "\"\\!\\(\\*FractionBox[\\(1\\), \\(d\\)]\\)(m)\"", TraditionalForm], 
+    FormBox["\"Interplate Capacitance (F)\"", TraditionalForm]},
+  AxesOrigin->{0, 2.*^-11},
+  Method->{},
+  PlotLabel->FormBox[
+   "\"Interplate Capacitance (F) vs\\!\\(\\*FractionBox[\\(1\\), \
+\\(distance\\)]\\)(m)\"", TraditionalForm],
+  PlotRange->{{0., 630}, {1.0000000000000001`*^-11, 6.*^-10}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.6058971975071077`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "We stated that theoretically the plot should have a straight line because \
+the Capacitance is proportional to ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", "distance"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". This is trube because ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"C", "=", 
+    RowBox[{"Eo", "(", 
+     FractionBox["A", "d"], ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", according to the equation our slope should m=EoA. The slope turned out to \
+be a straight line, thus the results are in direct corrolation with the \
+theorey. "
+}], "Text",
+ CellChangeTimes->{{3.605899727379486*^9, 3.6058998197574863`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Enot", "=", " ", 
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{"Interplatecapcitance", "*", "thickne"}], ")"}], "Aplate"]}], 
+   ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Enot", " ", "values", " ", "for", " ", "each", " ", "of", " ", "the", " ",
+     "washers", " ", 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Qtable", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"Washers", ",", " ", "Enot"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"NumberForm", "[", 
+  RowBox[{
+   RowBox[{"Grid", "[", " ", 
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{"Qtable", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Washer\>\"", ",", " ", 
+         "\"\<Value of Eo (\!\(\*FractionBox[\(F\), \(m\)]\))\>\""}], "}"}]}],
+       "]"}], ",", " ", 
+     RowBox[{"Frame", " ", "\[Rule]", " ", "All"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "2"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Avgenot", "=", 
+   RowBox[{"Mean", "[", "Enot", "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{"Average", " ", "Eo", " ", "value", " ", 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"stdv", "=", " ", 
+   RowBox[{"StandardDeviation", "[", "Enot", "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Standard", " ", "Deviation", " ", 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"numb", "=", "6"}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Number", " ", "of", " ", "Washers", " ", "used"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"stdvmean", "=", " ", 
+    FractionBox["stdv", 
+     SqrtBox["numb"]]}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Standard", " ", "deviation", " ", "of", " ", "the", " ", "mean", " ", 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"theoenot", "=", 
+   RowBox[{"8.854187817", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]]}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"The", " ", "theoretical", " ", "Eo", " ", "value", " ", 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"discrep", "=", " ", 
+   RowBox[{"theoenot", "-", "Avgenot", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Discrepency", " ", "between", " ", "our", " ", "calculated", " ", 
+      "value", " ", "and", " ", "theoretical", " ", "value", " ", "in", " ", 
+      RowBox[{"(", 
+       FractionBox["F", "m"], ")"}]}], "*)"}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.605897324962852*^9, 3.6058974237767324`*^9}, {
+   3.6058976227526283`*^9, 3.6058976415045033`*^9}, 3.605897734399694*^9, {
+   3.6058977650526943`*^9, 3.605897779867694*^9}, {3.605897837112694*^9, 
+   3.605897839254694*^9}, {3.6058978716336937`*^9, 3.605898139304694*^9}, {
+   3.605898175017694*^9, 3.605898179161694*^9}, {3.605898242601694*^9, 
+   3.605898244364694*^9}, {3.6058983080811634`*^9, 3.6058983338517404`*^9}, {
+   3.605898382004555*^9, 3.6058984170540595`*^9}, {3.605898549652318*^9, 
+   3.605898565449898*^9}, {3.6058990434876966`*^9, 3.605899114237771*^9}, {
+   3.605899332306576*^9, 3.6058993788152266`*^9}, {3.605899477645108*^9, 
+   3.605899542199563*^9}, {3.6058995781291556`*^9, 3.6058996020885515`*^9}, {
+   3.605899638791221*^9, 3.605899679053247*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"Washer\"\>", "\<\"Value of Eo (\\!\\(\\*FractionBox[\\(F\\), \
+\\(m\\)]\\))\"\>"},
+     {
+      InterpretationBox["\<\"1.00\"\>",
+       1,
+       Editable->False], 
+      InterpretationBox[
+       RowBox[{"\<\"8.29\"\>", "\[Times]", 
+        SuperscriptBox["10", "\<\"-12\"\>"]}],
+       8.29236559139785*^-12,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"2.00\"\>",
+       2,
+       Editable->False], 
+      InterpretationBox[
+       RowBox[{"\<\"8.48\"\>", "\[Times]", 
+        SuperscriptBox["10", "\<\"-12\"\>"]}],
+       8.482795698924732*^-12,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"3.00\"\>",
+       3,
+       Editable->False], 
+      InterpretationBox[
+       RowBox[{"\<\"8.52\"\>", "\[Times]", 
+        SuperscriptBox["10", "\<\"-12\"\>"]}],
+       8.51741935483871*^-12,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"4.00\"\>",
+       4,
+       Editable->False], 
+      InterpretationBox[
+       RowBox[{"\<\"8.59\"\>", "\[Times]", 
+        SuperscriptBox["10", "\<\"-12\"\>"]}],
+       8.586666666666668*^-12,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"5.00\"\>",
+       5,
+       Editable->False], 
+      InterpretationBox[
+       RowBox[{"\<\"8.92\"\>", "\[Times]", 
+        SuperscriptBox["10", "\<\"-12\"\>"]}],
+       8.915591397849462*^-12,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"6.00\"\>",
+       6,
+       Editable->False], 
+      InterpretationBox[
+       RowBox[{"\<\"9.24\"\>", "\[Times]", 
+        SuperscriptBox["10", "\<\"-12\"\>"]}],
+       9.244516129032257*^-12,
+       AutoDelete->True]}
+    },
+    AutoDelete->False,
+    GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"],
+  NumberForm[#, {10, 2}]& ]], "Output",
+ CellChangeTimes->{{3.605898082665694*^9, 3.605898132959694*^9}, 
+   3.605898179517694*^9, 3.6058983348748426`*^9, 3.605898420206375*^9, 
+   3.6058985662219753`*^9, 3.6058990880491524`*^9, {3.6058995346418076`*^9, 
+   3.605899542850628*^9}, 3.6058996057899213`*^9, {3.6058996622025623`*^9, 
+   3.605899682064548*^9}}],
+
+Cell[BoxData["8.673225806451613`*^-12"], "Output",
+ CellChangeTimes->{{3.605898082665694*^9, 3.605898132959694*^9}, 
+   3.605898179517694*^9, 3.6058983348748426`*^9, 3.605898420206375*^9, 
+   3.6058985662219753`*^9, 3.6058990880491524`*^9, {3.6058995346418076`*^9, 
+   3.605899542850628*^9}, 3.6058996057899213`*^9, {3.6058996622025623`*^9, 
+   3.6058996820695486`*^9}}],
+
+Cell[BoxData["3.4589014928903007`*^-13"], "Output",
+ CellChangeTimes->{{3.605898082665694*^9, 3.605898132959694*^9}, 
+   3.605898179517694*^9, 3.6058983348748426`*^9, 3.605898420206375*^9, 
+   3.6058985662219753`*^9, 3.6058990880491524`*^9, {3.6058995346418076`*^9, 
+   3.605899542850628*^9}, 3.6058996057899213`*^9, {3.6058996622025623`*^9, 
+   3.605899682072549*^9}}],
+
+Cell[BoxData["1.4120906213553692`*^-13"], "Output",
+ CellChangeTimes->{{3.605898082665694*^9, 3.605898132959694*^9}, 
+   3.605898179517694*^9, 3.6058983348748426`*^9, 3.605898420206375*^9, 
+   3.6058985662219753`*^9, 3.6058990880491524`*^9, {3.6058995346418076`*^9, 
+   3.605899542850628*^9}, 3.6058996057899213`*^9, {3.6058996622025623`*^9, 
+   3.605899682075549*^9}}],
+
+Cell[BoxData["1.809620105483857`*^-13"], "Output",
+ CellChangeTimes->{{3.605898082665694*^9, 3.605898132959694*^9}, 
+   3.605898179517694*^9, 3.6058983348748426`*^9, 3.605898420206375*^9, 
+   3.6058985662219753`*^9, 3.6058990880491524`*^9, {3.6058995346418076`*^9, 
+   3.605899542850628*^9}, 3.6058996057899213`*^9, {3.6058996622025623`*^9, 
+   3.6058996820785494`*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Since we had the capacitance, the Area, and the distance, we could easily \
+find the Eo value for each of the different washers (presented above in the \
+table). Thus the Average Eo value could be calculated: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"8.67", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]], 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox["F", "m"], ")"}], "."}]}], TraditionalForm]]],
+ "The standard deviation being ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"3.46", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "13"}]], 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], TraditionalForm]]],
+ " and the standard deviation of the mean being ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1.41", "*", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "13"}]}], 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], TraditionalForm]]],
+ ". Thus the actual standard deviation calculated is ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"8.67", "\[PlusMinus]", "0.14"}], ")"}], " ", "*", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "12"}]], 
+   RowBox[{"(", 
+    FractionBox["F", "m"], ")"}]}]]],
+ ". The discrepency between the calculated and theoretical is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1.81", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "13"}]], 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox["F", "m"], ")"}], ".", " "}]}], TraditionalForm]]]
+}], "Text",
+ CellChangeTimes->{{3.6058998536764865`*^9, 3.6059000921384864`*^9}, {
+  3.6059002001324863`*^9, 3.6059002262274866`*^9}, {3.6059003571514864`*^9, 
+  3.6059004257954865`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Part 2:", "Subsubtitle",
+ CellChangeTimes->{{3.6059004596664867`*^9, 3.6059004605534863`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Tvsvolt", " ", "=", " ", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"T", ",", " ", "Volt"}], "}"}], "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"{", "Tvsvolt", "}"}], ",", " ", 
+    RowBox[{
+    "PlotLabel", " ", "\[Rule]", " ", "\"\<Voltage (V) vs Time (s)\>\""}], 
+    ",", " ", 
+    RowBox[{"AxesLabel", " ", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Time (s)\>\"", ",", "\"\<Voltage (V)\>\""}], "}"}]}], ",", 
+    " ", 
+    RowBox[{"PlotRange", " ", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.00", ",", "0.018"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0.0", ",", "4"}], "}"}]}], "}"}]}]}], "]"}], 
+  " "}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6059004827574863`*^9, 3.6059006092844863`*^9}, {
+   3.6059006533694863`*^9, 3.6059007122164865`*^9}, {3.6059015288077707`*^9, 
+   3.6059015305109406`*^9}, 3.6059015987147603`*^9, 3.605901675868475*^9, {
+   3.6059017688637733`*^9, 3.6059017690147886`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000017`, 0.24, 0.6], 
+     PointBox[{{0., 3.62}, {0.002, 3.5}, {0.003, 3.26}, {0.004, 2.74}, {0.005,
+       2.46}, {0.006, 2.26}, {0.007, 2.1}, {0.008, 1.94}, {0.009, 1.82}, {
+      0.01, 1.66}, {0.013, 1.42}, {0.017, 1.14}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Time (s)\"", TraditionalForm], 
+    FormBox["\"Voltage (V)\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  Method->{},
+  PlotLabel->FormBox["\"Voltage (V) vs Time (s)\"", TraditionalForm],
+  PlotRange->{{0., 0.018}, {0., 4}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.6059016781507034`*^9, 3.6059017704378366`*^9}]
+}, Open  ]],
+
+Cell["\<\
+This plot as expected wouldn\[CloseCurlyQuote]t tell us anything. It was \
+suppose to be a curved plot.\
+\>", "Text",
+ CellChangeTimes->{{3.6059008879426904`*^9, 3.6059009072946253`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"lnVvsT", " ", "=", " ", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"T", ",", " ", "lnv"}], "}"}], "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"{", "lnVvsT", "}"}], ",", " ", 
+    RowBox[{
+    "PlotLabel", " ", "\[Rule]", " ", 
+     "\"\<Ln of Voltage (V) vs Time (s)\>\""}], ",", " ", 
+    RowBox[{"AxesLabel", " ", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Time (s)\>\"", ",", "\"\<Ln of Voltage (V)\>\""}], "}"}]}],
+     ",", " ", 
+    RowBox[{"PlotRange", " ", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.00", ",", "0.018"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0.0", ",", "1.5"}], "}"}]}], "}"}]}]}], "]"}], 
+  " "}]}], "Input",
+ CellChangeTimes->{{3.605901724694357*^9, 3.605901757918679*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000017`, 0.24, 0.6], 
+     PointBox[{{0., 1.2864740258376797`}, {0.002, 1.252762968495368}, {0.003, 
+      1.1817271953786161`}, {0.004, 1.007957920399979}, {0.005, 
+      0.9001613499442714}, {0.006, 0.8153648132841944}, {0.007, 
+      0.7419373447293773}, {0.008, 0.6626879730752367}, {0.009, 
+      0.598836501088704}, {0.01, 0.5068176023684519}, {0.013, 
+      0.35065687161316933`}, {0.017, 0.131028262406404}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Time (s)\"", TraditionalForm], 
+    FormBox["\"Ln of Voltage (V)\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  Method->{},
+  PlotLabel->FormBox["\"Ln of Voltage (V) vs Time (s)\"", TraditionalForm],
+  PlotRange->{{0., 0.018}, {0., 1.5}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.6059016874566336`*^9, {3.6059017389887867`*^9, 3.605901758667754*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "This plot of Ln(V) vs. Time, in theory, should be a straight line with a \
+slope of ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"-", "1"}], "T"], TraditionalForm]]],
+ " constant. Its not completely stragight (but it is getting there). This \
+limitation could have been a result of internal resistance and capacitance of \
+the wires. And the capacitors are very sensitive, any material nearby could \
+have impacted on the final result/reading. Now using the linfit.nb file, one \
+can determine the best fit line, slope, uncertainity in the slope, intercept, \
+and uncertainty in the intercept. Hence, the time constant can be calculated. "
+}], "Text",
+ CellChangeTimes->{{3.605900914671363*^9, 3.6059010736702614`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwVkH84E3gcxyeLcRyu0e7RielJftSjOxORTyrpB5dpHdlc47Kk51h+1plu
+5VdixibHdf04GWbSsMrvL9mFXLNzUgi7CjMxv1rP+VG3++PzvJ/X87xfz/t5
+PjbhMYER6zAYjL/2/s/g8tDygCEqqnxzjuim1EBnkGvZF21UhGMJ2eQJDbji
+TAT9Aipi4CdHo95qAH+2rST4PBURfcJv3FRooNfB9hYdR0XFZcF43UENHKxW
+FjBdQ9DVsz56sm4NuDyIu5LHC0YMtZXqB5EGTDuyQuVHTiCblb9quNEaSL0w
+8rs5zQ9Juzgckeo9WKYyTtbbeaFkP9pkWsx76IgKI9yLNUUrzsLqLs0SPA8K
+fJlo6waCnqOP5XFLkFEd+OKnvYchYpMOpfDfRSB4rD/9WnocyLZGX1snLAKH
+c3tie1cI6GZfT8EvLkDQcvHRSCEd/qzY6fvk4gI4Il8fGuk0IJZtqKdmHk7k
+LjxfSTsDXXrb5mOS56G3oFk02xEFRfOVC8a688BxUhHTDkdDAS91L5M9BwFn
+rhWFdzNBMBVtlKc3B6tsMpOSHwvSmVOHlVg1BLhWqNQB8dDTPUpJ15mFXmaK
+c9hCAqyZpdJumsyAOg7bafsoCTKf9K3uMXgHu1cN7JtDL4LHpG/xSfw02Pm3
+DwvskuFgfKRszVAFze64ne5TLFA8Th9N1JsClugZuSTnEghSulRRG5Sgji0J
+q7ZnQ1vpQ+7kZ5PwMPArtmaNDevdnjqPmU8AGaOI2SC7DEM5Q1WiLePgyVvR
+H7x/BfS+LWzHbH4LLYyB9KwrqUBLTuqTO7wB7mbDqteMNDAwx7Lsia+BVJZ+
+19Q3HXyYHEyQ1T/AjGlj2xMyoGqX5+VPjgpY3UTRm17OgP4BJ1LYkVGwMi4/
+/4ssE0otnOgNp14Bvse7mnDrKuQNbvFuujQE1B9J/H0/Z4FTQvxxWfxL2BWo
+DA0iXwOrqc+/f8EZgNOWS3I8KRuaSZhf51P6wc4O2bcY5IA4xFOmk98HLZi+
+47uHckC6Lra+6Z4cSlv3bKU3cwCnv1ZuvP8Z2KDIUSY3F5wbRL1cZjeo777z
+cojnQv0mXIiL3x9wyJHmRnPIgwsZQQFOHu3wRmAjJfDzQO59Mdpa0QjlvA2l
+Qmw+0Adv6Wwvq4UH1uOa+9H52v+OTRPnBHDvekjtnYF8wLS6mk2kZYOMtdoe
+4csDNsayxk/FQ7vXXzpwR6zlGbO4gboKVHLmO2JiLQ/oL8RNyg8VyODpDoyf
+hAeY9mPYFQ8hepk71vThkbZfwLm+WSpECQTvb44hLXsY1Ef2VyKxI5b48ZmW
+szBry0tVaGvgtU/UaR6IeUkdJjfEKFcSPrJzhgd39DsnCS1i9N7Co0lfzQMm
+y8KIOCZG0uHpxLoFHuxlPKC42NagsAj/WcNlre++OB4sqkG/XTAdacDxQayI
+xpU01SLdYWUj15AP7BOtTqKRWhS1p70owogP9KfGZMmnWuS+LpZiZsoHa0lV
+8ZP9dWgg+++eyI18yMtUOUz31CGvWZHQ60utv+p+bGmmDgkC0jLxllr/fFbc
+mokExZuT9rdZaX3qtmYTigQNJxnbFFrzYa43SUFIlKB9Q+MfzxH5ID/QiSUW
+SVClZ+sr7y18aGuwsHdslCCz24WNG7dq93Yw/F1eSdB/v2Neug==
+      "]]}}, {{}, {{}, 
+     {RGBColor[1, 0, 0], PointSize[Large], 
+      PointBox[{{0., 1.2864740258376797`}, {0.002, 1.252762968495368}, {0.003,
+        1.1817271953786161`}, {0.004, 1.007957920399979}, {0.005, 
+       0.9001613499442714}, {0.006, 0.8153648132841944}, {0.007, 
+       0.7419373447293773}, {0.008, 0.6626879730752367}, {0.009, 
+       0.598836501088704}, {0.01, 0.5068176023684519}, {0.013, 
+       0.35065687161316933`}, {0.017, 0.131028262406404}}]}, {}}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  Method->{},
+  PlotLabel->FormBox["\"Linear Regression Fit\"", TraditionalForm],
+  PlotRange->{{-0.0017000000000000001`, 0.0187}, {-0.08148505105617176, 
+   1.431694158991585}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mic", "=", 
+   RowBox[{"-", "74.176"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]mic", "=", "3.930"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", "1.306"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]b", "=", "0.033"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Tim", "=", 
+   FractionBox[
+    RowBox[{"-", "1"}], "mic"]}], 
+  RowBox[{"(*", 
+   RowBox[{"The", " ", "T", " ", "value", " ", "in", " ", 
+    RowBox[{"(", "s", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]Tim", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     FractionBox["1", 
+      SuperscriptBox["mic", "2"]], ")"}], "\[Delta]m"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertainity", " ", "using", " ", "the", " ", "rule", " ", "of", " ", 
+    "error", " ", "propagation", " ", 
+    RowBox[{"(", "s", ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Discrep2", "=", 
+  RowBox[{"RC", "-", "Tim", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Discrepency", " ", "between", " ", "the", " ", "RC", " ", "value", " ", 
+     "and", " ", "the", " ", "calculated", " ", "T", " ", 
+     RowBox[{"(", "s", ")"}]}], "*)"}]}]}]}], "Input",
+ CellChangeTimes->{{3.6059018432468367`*^9, 3.605902203884276*^9}}],
+
+Cell[BoxData["0.013481449525452976`"], "Output",
+ CellChangeTimes->{
+  3.605901899415837*^9, 3.6059019316238365`*^9, {3.6059021382737155`*^9, 
+   3.6059022064795356`*^9}}],
+
+Cell[BoxData["0.0007142754615378315`"], "Output",
+ CellChangeTimes->{
+  3.605901899415837*^9, 3.6059019316238365`*^9, {3.6059021382737155`*^9, 
+   3.605902206482536*^9}}],
+
+Cell[BoxData["0.008518550474547023`"], "Output",
+ CellChangeTimes->{
+  3.605901899415837*^9, 3.6059019316238365`*^9, {3.6059021382737155`*^9, 
+   3.605902206485536*^9}}]
+}, Open  ]],
+
+Cell["\<\
+T=0.014 \[PlusMinus] 0.001 s with a Discrepency of 0.009 s. \
+\>", "Text",
+ CellChangeTimes->{{3.605902284644351*^9, 3.605902347998686*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusion", "Subtitle",
+ CellChangeTimes->{{3.605902418233709*^9, 3.605902419313817*^9}}],
+
+Cell["\<\
+Part 1: Capacitance of Parallel Plates\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.605968585891135*^9, 3.6059685999555416`*^9}}],
+
+Cell[TextData[{
+ "The Average Eo value was calculated to be: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"8.67", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]], 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox["F", "m"], ")"}], "."}]}], TraditionalForm]]],
+ "The standard deviation being ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"3.46", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "13"}]], 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], TraditionalForm]]],
+ " and the standard deviation of the mean being ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1.41", "*", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "13"}]}], 
+    RowBox[{"(", 
+     FractionBox["F", "m"], ")"}]}], TraditionalForm]]],
+ ". Thus the actual standard deviation calculated is ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"8.67", "\[PlusMinus]", "0.14"}], ")"}], " ", "*", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "12"}]], 
+   RowBox[{"(", 
+    FractionBox["F", "m"], ")"}]}]]],
+ ". The discrepency between the calculated and theoretical is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1.81", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "13"}]], 
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox["F", "m"], ")"}], ".", " "}]}], TraditionalForm]]],
+ "The discrepency between the theoretical and experimental is rather small, \
+signifying that the lab was actually succesful in terms of precision. \
+Although the possible limitations (sources of erros) could have been caused \
+by the fact that there were many different objects nearby the capacitance. \
+Since the capcitors are extremely sensitive, the human bodies can also be \
+taken into account for the limitations of the accuracy and precision of the \
+results. Even the environment in which the lab was conducted could be a \
+factor into the lab errors/limitations (like exisiting heat in the \
+environment will degrade its performance as well). The material tha the \
+capacitor was made out of also affects the results.  The lab could improve if \
+we chose a different setting for the lab to be conducted, like in some sort \
+of vaccum, the results could be better and more accurate.In theory the plot \
+between the interplate capacitance against the inverse distance was supposed \
+to be a straight line with a slope of m=EoA, which experimentally, was \
+exactly what occured."
+}], "Text",
+ CellChangeTimes->{{3.605968625456091*^9, 3.6059686640539503`*^9}, {
+  3.6059686975763025`*^9, 3.6059687241289577`*^9}, {3.6059687786434083`*^9, 
+  3.6059690774766536`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Part 2: Measurement of the time constant of an RC circuit\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.605969097469653*^9, 3.6059691139823036`*^9}}],
+
+Cell["\<\
+In the second part of this particular lab, the exponential decay of the \
+voltage on a capacitor in an RC circuit using a digital oscilloscope was \
+observed. Using all our data, we plotted a graph of the change in voltage \
+vs.time. It doesn\[CloseCurlyQuote]t help us conclude anything, thus the plot \
+of Ln(V) vs. Time was created, which in theory should\[CloseCurlyQuote]ve \
+given a perfect straight line. However, that could occur in a perfect world, \
+thus our\[CloseCurlyQuote]s was close enough to a straight line. Hence, the \
+linfit.nb file was used in order to create a best fit line for the plotted \
+points as seen above in the data analysis. Then the data that the linfit.nb \
+provided (the best fit line, slope, uncertainity in the slope, intercept, and \
+uncertainty in the intercept), we used to determine the Time constant to be \
+0.014s. The RC value was 0.022s, which gave a discrepency of 0.009s. Not a \
+very high discrepency, but it is significant enough. The possible limitations \
+could be the resistance and the capacitance of the wires. The values of \
+internal resistance were not taken into account, nor did we know about the \
+commerical resistor and the capacitor (which could be a major factor in \
+error). The oscilloscope was not really functioning properly at the \
+beginning, might\[CloseCurlyQuote]ve been a factor in the limitation. In \
+conclusion, this lab taught us about capacitors and time constants. \
+\>", "Text",
+ CellChangeTimes->{{3.605969347680671*^9, 3.6059695152554274`*^9}, {
+  3.6059695509159927`*^9, 3.6059696116190624`*^9}, {3.605969683631263*^9, 
+  3.605969858557754*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{740, 756},
+WindowMargins->{{Automatic, 64}, {Automatic, 86}},
+FrontEndVersion->"9.0 for Microsoft Windows (32-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 147, 2, 166, "Title"],
+Cell[729, 26, 100, 1, 56, "Subtitle"],
+Cell[832, 29, 764, 12, 106, "Text"],
+Cell[CellGroupData[{
+Cell[1621, 45, 92, 1, 56, "Subtitle"],
+Cell[1716, 48, 200, 4, 33, "Subsubtitle"],
+Cell[1919, 54, 2149, 39, 343, "Text"],
+Cell[CellGroupData[{
+Cell[4093, 97, 103, 1, 33, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[4221, 102, 4247, 117, 391, "Input"],
+Cell[8471, 221, 459, 6, 31, "Output"],
+Cell[8933, 229, 1272, 22, 150, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10254, 257, 163, 2, 33, "Subsubtitle"],
+Cell[10420, 261, 1070, 23, 162, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11527, 289, 103, 1, 33, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[11655, 294, 2691, 75, 252, "Input"],
+Cell[14349, 371, 2565, 97, 228, "Output"],
+Cell[16917, 470, 630, 12, 52, "Output"],
+Cell[17550, 484, 628, 12, 52, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18239, 503, 105, 1, 56, "Subtitle"],
+Cell[18347, 506, 100, 1, 33, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[18472, 511, 1349, 37, 131, "Input"],
+Cell[19824, 550, 1006, 22, 251, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20867, 577, 806, 24, 155, "Input"],
+Cell[21676, 603, 954, 21, 251, "Output"]
+}, Open  ]],
+Cell[22645, 627, 679, 18, 97, "Text"],
+Cell[CellGroupData[{
+Cell[23349, 649, 3472, 89, 364, "Input"],
+Cell[26824, 740, 2214, 69, 160, "Output"],
+Cell[29041, 811, 370, 5, 31, "Output"],
+Cell[29414, 818, 369, 5, 31, "Output"],
+Cell[29786, 825, 369, 5, 31, "Output"],
+Cell[30158, 832, 370, 5, 31, "Output"]
+}, Open  ]],
+Cell[30543, 840, 1604, 49, 158, "Text"],
+Cell[CellGroupData[{
+Cell[32172, 893, 100, 1, 33, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[32297, 898, 1136, 30, 112, "Input"],
+Cell[33436, 930, 783, 17, 245, "Output"]
+}, Open  ]],
+Cell[34234, 950, 197, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[34456, 958, 913, 27, 92, "Input"],
+Cell[35372, 987, 1015, 21, 237, "Output"]
+}, Open  ]],
+Cell[36402, 1011, 749, 14, 134, "Text"],
+Cell[37154, 1027, 2741, 52, 263, "Input"],
+Cell[CellGroupData[{
+Cell[39920, 1083, 1281, 35, 205, "Input"],
+Cell[41204, 1120, 171, 3, 31, "Output"],
+Cell[41378, 1125, 170, 3, 31, "Output"],
+Cell[41551, 1130, 169, 3, 31, "Output"]
+}, Open  ]],
+Cell[41735, 1136, 150, 3, 30, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41934, 1145, 96, 1, 56, "Subtitle"],
+Cell[42033, 1148, 137, 3, 33, "Subsubtitle"],
+Cell[42173, 1153, 2524, 62, 332, "Text"],
+Cell[CellGroupData[{
+Cell[44722, 1219, 156, 3, 33, "Subsubtitle"],
+Cell[44881, 1224, 1640, 23, 277, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

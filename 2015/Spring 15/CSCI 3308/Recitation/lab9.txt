@@ -1,0 +1,30 @@
+Dynamic Analysis Lab
+
+Part 1:
+        2.Seg Fault (Core Dumped)
+        4.Line 89
+        6.//Declaring pt before running it
+                 pt = malloc (sizeof(*pt));
+        9. break zeroDist
+        11.//print x and y
+                print other_pt->x
+                print other_pt->y
+        12.delete zeroDist
+                c
+
+Part 2:
+        2. Yes. 31,999,984 bytes in 1,999,999 blocks
+        3. Line 41 and 89. 
+        4. Add "free(pt);" and "free(zero_pt);" 89/41
+
+Part 3:
+        1.10 million (1.164s) "time ./pi 10000000"
+        2.      51.71% zeroDist
+                27.41% malloc
+                24.59% free
+                20.91% dist
+                20.35% _int_free
+        6. pt = malloc(sizeof(*pt) outside the for loop before it
+                and then free(pt) outside the for loop after it
+        8. 0.918 s vs 1.164 (26.8% improvement)
+        
